@@ -65,6 +65,11 @@ html {
   cursor: none;
 }
 
+@media (hover: none), (pointer: coarse) {
+  html { cursor: auto; }
+  a, button, [data-cursor] { cursor: auto !important; }
+}
+
 body {
   font-family: var(--font-body);
   font-weight: 400;

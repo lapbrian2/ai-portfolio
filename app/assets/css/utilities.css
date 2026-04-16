@@ -31,7 +31,7 @@
   border: 2px solid var(--ink);
   background: transparent;
   color: var(--ink);
-  cursor: none;
+  cursor: pointer;
   transition: all var(--duration-base) var(--ease-out);
 }
 
@@ -53,7 +53,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink);
-  cursor: none;
+  cursor: pointer;
   transition: gap var(--duration-base) var(--ease-out);
 }
 

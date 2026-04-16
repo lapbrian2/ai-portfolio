@@ -62,7 +62,11 @@ html {
   text-rendering: optimizeLegibility;
   background-color: var(--paper-edge);
   color: var(--ink);
-  cursor: auto;
+  cursor: crosshair;
+}
+
+a, button, [data-cursor] {
+  cursor: pointer;
 }
 
 body {

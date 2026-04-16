@@ -43,6 +43,5 @@
 
 .newspaper__content {
   position: relative;
-  overflow: hidden;
 }
 </style>

@@ -64,7 +64,7 @@ onMounted(() => {
             <h1 ref="heroRef" class="ink-bleed headline-animate">
               The Artist Who Builds
             </h1>
-            <div class="banner__deck mt-6 scroll-fade">
+            <div class="banner__deck mt-8 scroll-fade">
               <p class="deck">
                 Exploring what it means to be human through images and code.
                 Lürzer's Archive 200 Best. creAtIva Vol. 7. Choice Dao 2026 Mover and Shaker.
@@ -319,6 +319,12 @@ onMounted(() => {
 
 .banner__content {
   max-width: 900px;
+  overflow: visible;
+}
+
+.banner__content h1 {
+  padding-bottom: 0.15em;
+  overflow: visible;
 }
 
 .banner__image {

@@ -169,7 +169,7 @@ onMounted(() => {
 
             <EditorNote
               type="dispatch"
-              text="Mr. Lapinski came to art and technology by way of Amazon, where he started as a temporary worker and was promoted through Area Manager to Regional Manager for Amazon Fresh, eventually moving into program management. A Villanova-trained Lean Six Sigma Black Belt, he went on to found Quick Dry Floor Care and now works at US Hydrations. The operations discipline — measure, optimize, ship — carried into everything that followed."
+              text="Mr. Lapinski came to art and technology by way of Amazon, where he started as a temp and earned six promotions — through process assistant, area manager, and regional manager before reaching program management. A Villanova-trained Lean Six Sigma Black Belt, he went on to found Quick Dry Floor Care and now works at US Hydrations. The operations discipline — measure, optimize, ship — carried into everything that followed."
             />
 
             <ScrollRevealText

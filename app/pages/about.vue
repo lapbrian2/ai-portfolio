@@ -24,7 +24,7 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
               />
               <ScrollRevealText
                 class="body-col mt-6"
-                text="But the work doesn't stop at images. Lapinski started at Amazon as a temporary worker and was promoted through Area Manager to Regional Manager for Amazon Fresh, then into program management — earning a Lean Six Sigma Black Belt from Villanova along the way. He founded Quick Dry Floor Care and now works at US Hydrations. The operations mindset — eliminate waste, measure everything, ship on time — carried into everything he builds."
+                text="But the work doesn't stop at images. Lapinski started at Amazon as a temp and earned six promotions — process assistant, area manager, regional manager, program manager — before striking out on his own — earning a Lean Six Sigma Black Belt from Villanova along the way. He founded Quick Dry Floor Care and now works at US Hydrations. The operations mindset — eliminate waste, measure everything, ship on time — carried into everything he builds."
               />
               <ScrollRevealText
                 class="body-col mt-6"
@@ -70,7 +70,7 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
               </div>
               <div class="cv__item">
                 <dt>Amazon</dt>
-                <dd>Temp → Area Mgr → Regional Mgr (Fresh) → Program Mgmt</dd>
+                <dd>Temp → Process Asst → Area Mgr → Regional Mgr → Program Mgr</dd>
               </div>
               <div class="cv__item">
                 <dt>Founded</dt>

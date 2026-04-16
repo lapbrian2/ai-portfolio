@@ -101,7 +101,7 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
             <h4 class="section-head mt-12">Elsewhere</h4>
             <nav class="sidebar-links mt-4">
               <a href="https://github.com/lapbrian2" target="_blank" rel="noopener noreferrer" data-cursor>GitHub</a>
-              <a href="https://linkedin.com/in/brian-lapinski" target="_blank" rel="noopener noreferrer" data-cursor>LinkedIn</a>
+              <a href="https://www.linkedin.com/in/brian-lapinski-a65238352" target="_blank" rel="noopener noreferrer" data-cursor>LinkedIn</a>
               <a href="#" data-cursor>Substack</a>
               <a href="#" data-cursor>Gumroad</a>
             </nav>

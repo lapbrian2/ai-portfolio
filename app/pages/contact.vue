@@ -17,7 +17,7 @@ useHead({ title: 'Contact — The Brian Lapinski Record' })
             <div class="contact-info mt-12">
               <h4 class="section-head">Direct Contact</h4>
               <p class="mt-4"><a href="mailto:brian@lapinski.dev" data-cursor>brian@lapinski.dev</a></p>
-              <p class="mt-2"><a href="https://linkedin.com/in/brian-lapinski" target="_blank" rel="noopener noreferrer" data-cursor>LinkedIn</a></p>
+              <p class="mt-2"><a href="https://www.linkedin.com/in/brian-lapinski-a65238352" target="_blank" rel="noopener noreferrer" data-cursor>LinkedIn</a></p>
             </div>
           </div>
           <div>

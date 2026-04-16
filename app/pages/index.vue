@@ -39,7 +39,7 @@ onMounted(() => {
     <!-- Banner headline -->
     <section class="banner">
       <div class="container">
-        <div class="banner__edition scroll-fade">
+        <div class="banner__edition entrance entrance--1">
           <span class="dateline">Vol. 1 &mdash; No. 1</span>
           <span class="dateline">{{ today }}</span>
           <span class="dateline">Final Edition</span>
@@ -47,26 +47,26 @@ onMounted(() => {
 
         <div class="banner__layout">
           <div class="banner__content">
-            <p class="kicker mb-4">Exclusive Report</p>
-            <h1 ref="heroRef" class="ink-bleed headline-animate">
+            <p class="kicker mb-4 entrance entrance--2">Exclusive Report</p>
+            <h1 ref="heroRef" class="ink-bleed entrance--hero">
               The Artist Who Builds
             </h1>
-            <div class="banner__deck mt-8 scroll-fade">
+            <div class="banner__deck mt-8 entrance entrance--4">
               <p class="deck">
                 Exploring what it means to be human through images and code.
                 Lürzer's Archive 200 Best. creAtIva Vol. 7. Choice Dao 2026 Mover and Shaker.
                 The story of a builder who sees no line between art and engineering.
               </p>
             </div>
-            <div class="banner__meta mt-4 scroll-fade">
+            <div class="banner__meta mt-4 entrance entrance--5">
               <span class="dateline">By Brian Lapinski &mdash; Drums, Pennsylvania</span>
             </div>
           </div>
-          <figure class="banner__image scroll-scale">
+          <figure class="banner__image entrance--image">
             <img
               src="/images/hero-brain.png"
               alt="Pulp sci-fi illustration of a mechanical brain"
-              class="halftone-img"
+              class="img-hover"
               loading="eager"
             />
             <figcaption class="banner__caption">
@@ -201,7 +201,7 @@ onMounted(() => {
                 </div>
               </div>
               <figure v-if="featuredProjects[0].image" class="story__lead-img">
-                <img :src="featuredProjects[0].image" :alt="featuredProjects[0].title" class="halftone-img" loading="lazy" />
+                <img :src="featuredProjects[0].image" :alt="featuredProjects[0].title" class="img-hover" loading="lazy" />
               </figure>
             </component>
             <hr class="rule rule--thick" />
@@ -223,7 +223,7 @@ onMounted(() => {
                 data-cursor-text="Read"
               >
                 <figure v-if="project.image" class="story__thumb">
-                  <img :src="project.image" :alt="project.title" class="halftone-img" loading="lazy" />
+                  <img :src="project.image" :alt="project.title" class="img-hover" loading="lazy" />
                 </figure>
                 <div>
                   <span class="kicker">{{ project.category === 'art' ? 'Art' : project.category === 'tech' ? 'Technology' : 'Creative' }}</span>
@@ -249,7 +249,7 @@ onMounted(() => {
     <section style="padding: var(--space-6) 0;">
       <div class="container">
         <figure class="inline-ad scroll-scale">
-          <img src="/images/pulp-new.png" alt="Vintage advertisement illustration" class="halftone-img" loading="lazy" />
+          <img src="/images/pulp-new.png" alt="Vintage advertisement illustration" class="img-hover" loading="lazy" />
           <figcaption class="inline-ad__caption">
             <span class="dateline">Advertisement</span> &mdash; Have you seen these innovations? The future is now!
           </figcaption>

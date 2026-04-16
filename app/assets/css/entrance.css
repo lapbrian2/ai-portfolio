@@ -1,0 +1,113 @@
+/* entrance.css — Orchestrated page load sequence
+   One clean animation on first load with staggered delays.
+   CSS only — no JavaScript, no splitting, no fragile hacks.
+*/
+
+/* Base: everything starts invisible */
+.entrance {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: entranceFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes entranceFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered delays — page reads top to bottom */
+.entrance--1 { animation-delay: 0.1s; }
+.entrance--2 { animation-delay: 0.2s; }
+.entrance--3 { animation-delay: 0.35s; }
+.entrance--4 { animation-delay: 0.5s; }
+.entrance--5 { animation-delay: 0.65s; }
+.entrance--6 { animation-delay: 0.8s; }
+.entrance--7 { animation-delay: 1.0s; }
+.entrance--8 { animation-delay: 1.2s; }
+
+/* Headline entrance — slower, more dramatic */
+.entrance--hero {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: entranceHero 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+@keyframes entranceHero {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Image entrance — scale from slightly smaller */
+.entrance--image {
+  opacity: 0;
+  transform: scale(0.97);
+  animation: entranceImage 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+@keyframes entranceImage {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Story hover — the surprise interaction */
+.story-hover {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease;
+}
+
+.story-hover:hover {
+  transform: translateX(8px);
+  background-color: var(--paper-dark);
+}
+
+.story-hover:hover .story__headline {
+  color: var(--red);
+}
+
+/* Image hover — desaturate on rest, full color on hover */
+.img-hover {
+  filter: grayscale(70%) contrast(1.1) sepia(20%);
+  transition: filter 0.5s ease;
+}
+
+.img-hover:hover {
+  filter: grayscale(0%) contrast(1.05) sepia(5%);
+}
+
+/* Link underline reveal */
+.link-reveal {
+  position: relative;
+  display: inline;
+}
+
+.link-reveal::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--ink);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-reveal:hover::after {
+  width: 100%;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .entrance,
+  .entrance--hero,
+  .entrance--image {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

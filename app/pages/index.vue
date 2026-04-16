@@ -23,25 +23,12 @@ onMounted(() => {
   const { $gsap } = useNuxtApp() as any
   if (!$gsap || !heroRef.value) return
 
-  const text = heroRef.value.textContent || ''
-  heroRef.value.innerHTML = text
-    .split('')
-    .map((char: string) =>
-      char === ' '
-        ? '<span class="char">&nbsp;</span>'
-        : `<span class="char">${char}</span>`
-    )
-    .join('')
-
-  heroRef.value.style.overflow = 'visible'
-
-  const chars = heroRef.value.querySelectorAll('.char')
-
-  $gsap.from(chars, {
-    y: '110%',
-    duration: 0.9,
-    delay: 0.4,
-    stagger: 0.012,
+  // Simple whole-element animation — no char splitting
+  $gsap.from(heroRef.value, {
+    y: 40,
+    opacity: 0,
+    duration: 1.2,
+    delay: 0.3,
     ease: 'expo.out',
   })
 })

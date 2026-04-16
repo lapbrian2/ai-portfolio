@@ -1,0 +1,87 @@
+/* layout.css — Grid, containers, sections */
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--space-12);
+  }
+}
+
+.section {
+  padding: var(--space-32) 0;
+  position: relative;
+}
+
+.section--surface {
+  background-color: var(--surface);
+}
+
+.section--flush {
+  padding: 0;
+}
+
+/* Horizontal rule */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.grid--2 {
+  grid-template-columns: 1fr;
+}
+
+.grid--3 {
+  grid-template-columns: 1fr;
+}
+
+.grid--4 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Page transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity var(--duration-slow) var(--ease-in-out);
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+/* Reveal animation base */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--duration-dramatic) var(--ease-out),
+              transform var(--duration-dramatic) var(--ease-out);
+}

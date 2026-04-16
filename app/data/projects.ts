@@ -31,6 +31,7 @@ export const projects: Project[] = [
     byline: 'Staff Report',
     dateline: 'Drums, PA',
     category: 'art',
+    image: '/images/factory-floor.png',
     tags: ['Community', 'Recognition', 'Style DNA'],
   },
   {
@@ -77,6 +78,7 @@ export const projects: Project[] = [
     dateline: 'Drums, PA',
     category: 'creative',
     url: 'https://ml-systems-universe.vercel.app/',
+    image: '/images/helix.png',
     tags: ['Three.js', 'GSAP', 'Data Visualization'],
   },
 ]

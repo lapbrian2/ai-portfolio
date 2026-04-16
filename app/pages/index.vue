@@ -97,7 +97,6 @@ onMounted(() => {
       <div class="container">
         <SectionJump :sections="[
           { label: 'The Profile', id: 'profile' },
-          { label: 'The Pictures', id: 'pictures' },
           { label: 'Featured Stories', id: 'stories' },
           { label: 'The Practice', id: 'practice' },
         ]" />
@@ -178,34 +177,6 @@ onMounted(() => {
               </div>
             </dl>
           </aside>
-        </div>
-      </div>
-    </section>
-
-    <OrnamentalRule />
-
-    <!-- Illustration strip — multiple pulp images -->
-    <section id="pictures" class="section" style="padding: var(--space-8) 0;">
-      <div class="container">
-        <div class="illustration-strip scroll-stagger">
-          <figure class="illustration">
-            <img src="/images/retro-sci-fi.png" alt="Engineer working on mechanical arms" class="halftone-img" loading="lazy" />
-            <figcaption class="illustration__caption">
-              <span class="dateline">Plate I.</span> &mdash; The builder at work, circa 2026. Oil on panel, artist unknown. Courtesy of the Lapinski Collection.
-            </figcaption>
-          </figure>
-          <figure class="illustration">
-            <img src="/images/pulp-vintage.png" alt="Street artist facing a mechanical creature" class="halftone-img" loading="lazy" />
-            <figcaption class="illustration__caption">
-              <span class="dateline">Plate II.</span> &mdash; Man versus Machine: an enduring conflict. Commissioned for this special edition.
-            </figcaption>
-          </figure>
-          <figure class="illustration">
-            <img src="/images/pulp-sci-fi-2.png" alt="Newsboy reading the paper in shock" class="halftone-img" loading="lazy" />
-            <figcaption class="illustration__caption">
-              <span class="dateline">Plate III.</span> &mdash; EXTRA! EXTRA! Read all about it! A boy discovers the future in the morning edition.
-            </figcaption>
-          </figure>
         </div>
       </div>
     </section>

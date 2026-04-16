@@ -92,19 +92,59 @@ onMounted(() => {
 
     <div class="container"><hr class="rule scroll-rule" /></div>
 
-    <!-- Lede + sidebar -->
-    <section class="section scroll-exit">
+    <!-- Section Jump — table of contents -->
+    <section style="padding: var(--space-4) 0;">
       <div class="container">
+        <SectionJump :sections="[
+          { label: 'The Profile', id: 'profile' },
+          { label: 'The Pictures', id: 'pictures' },
+          { label: 'Featured Stories', id: 'stories' },
+          { label: 'Classifieds', id: 'classifieds' },
+          { label: 'Services Directory', id: 'services' },
+        ]" />
+      </div>
+    </section>
+
+    <!-- Lede + sidebar -->
+    <section id="profile" class="section scroll-exit">
+      <div class="container">
+        <ArticleMeta
+          byline="Our Special Correspondent"
+          dateline="Drums, Pennsylvania"
+          read-time="4"
+          section="Profile"
+        />
         <div class="grid grid--sidebar">
           <div>
             <ScrollRevealText
               class="lede"
-              text="Brian Lapinski uses images as a way to explore what it means to be human. His work is rooted in personal exploration, emotion, and connection — not trends or technique for its own sake. Named to Lürzer's Archive 200 Best Digital Artists and selected for creAtIva Magazine Vol. 7, his images have shown at galleries from New York to Barcelona."
+              text="Brian Lapinski uses images as a way to explore what it means to be human. His work is rooted in personal exploration, emotion, and connection — not trends or technique for its own sake. He is interested in images that speak without words and create a quiet connection between people."
             />
+
+            <PullQuote
+              quote="I use images as a way to explore what it means to be human."
+              attribution="Brian Lapinski, in conversation"
+            />
+
             <ScrollRevealText
-              class="body-col mt-8"
-              text="But Lapinski is also a builder. A Villanova-trained Lean Six Sigma Black Belt who managed programs at Amazon, founded a cleaning company, and now supervises operations at US Hydrations. He builds AI agent systems, Three.js experiences, and tools that bridge the gap between art and engineering. 1,138 commits across 19 repositories. 46 registered skills. One cockpit to run it all."
+              class="body-col"
+              text="Named to Lürzer's Archive 200 Best Digital Artists — one of the most prestigious recognitions in commercial digital art — Lapinski's images have shown at Dream AI Gallery in New Jersey, Fundación Nestlé in Barcelona, FNAC in Asturias, and Art Innovation Gallery in New York. He was selected for creAtIva Magazine Volume 7 and recognized as a 2026 Mover and Shaker by the Choice Dao community."
             />
+
+            <EditorNote
+              type="dispatch"
+              text="Mr. Lapinski spent fifteen years on manufacturing floors before turning to art and technology. He earned a Lean Six Sigma Black Belt from Villanova University and managed programs at Amazon as an Area Manager. He founded Quick Dry Floor Care, a residential carpet cleaning operation, and now serves as Supervisor at US Hydrations."
+            />
+
+            <ScrollRevealText
+              class="body-col"
+              text="But it is the work after hours that defines the man. Lapinski builds AI agent systems, Three.js immersive web experiences, and tools that bridge the gap between art and engineering. His Style DNA methodology treats AI image generation as reproducible craft — isolating the variables that define a visual style, then systematically adjusting them until the output matches the intent. It is the operations mindset applied to art."
+            />
+
+            <LateBreaking
+              text="As of press time, Lapinski has logged 1,138 commits across 19 repositories, registered 46 autonomous skills, and built a command center that controls his entire operation from a single HTML file. He is currently accepting contracts."
+            />
+
             <p class="continued mt-4 scroll-fade">
               <em>Continued on Page 3</em> &mdash;
               <NuxtLink to="/about" class="link-arrow" data-cursor>Read full profile</NuxtLink>
@@ -160,7 +200,7 @@ onMounted(() => {
       </div>
     </section>
 
-    <div class="container"><hr class="rule scroll-rule" /></div>
+    <OrnamentalRule />
 
     <!-- Illustration strip — multiple pulp images -->
     <section class="section" style="padding: var(--space-8) 0;">
@@ -169,31 +209,36 @@ onMounted(() => {
           <figure class="illustration">
             <img src="/images/retro-sci-fi.png" alt="Engineer working on mechanical arms" class="halftone-img" loading="lazy" />
             <figcaption class="illustration__caption">
-              <span class="dateline">Illustration</span> &mdash; The builder at work.
+              <span class="dateline">Plate I.</span> &mdash; The builder at work, circa 2026. Oil on panel, artist unknown. Courtesy of the Lapinski Collection.
             </figcaption>
           </figure>
           <figure class="illustration">
             <img src="/images/pulp-vintage.png" alt="Street artist facing a mechanical creature" class="halftone-img" loading="lazy" />
             <figcaption class="illustration__caption">
-              <span class="dateline">Illustration</span> &mdash; Art vs. Machine.
+              <span class="dateline">Plate II.</span> &mdash; Man versus Machine: an enduring conflict. Commissioned for this special edition.
             </figcaption>
           </figure>
           <figure class="illustration">
             <img src="/images/pulp-sci-fi-2.png" alt="Newsboy reading the paper in shock" class="halftone-img" loading="lazy" />
             <figcaption class="illustration__caption">
-              <span class="dateline">Illustration</span> &mdash; Extra! Extra! Read all about it.
+              <span class="dateline">Plate III.</span> &mdash; EXTRA! EXTRA! Read all about it! A boy discovers the future in the morning edition.
             </figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <div class="container"><hr class="rule scroll-rule" /></div>
+    <OrnamentalRule />
 
     <!-- Featured stories -->
-    <section class="section">
+    <section id="stories" class="section">
       <div class="container">
         <h4 class="section-head scroll-reveal-left">Featured Stories</h4>
+
+        <EditorNote
+          type="note"
+          text="The following dispatches have been compiled from press releases, exhibition catalogues, repository commit logs, and interviews conducted by our special correspondents. The editors vouch for their accuracy."
+        />
 
         <div ref="storiesRef" class="stories mt-8">
           <!-- Lead story — larger, with image -->
@@ -261,10 +306,17 @@ onMounted(() => {
     </section>
 
     <!-- Classified Ads — horizontal scroll -->
-    <ClassifiedAds />
+    <div id="classifieds">
+      <ClassifiedAds />
+    </div>
+
+    <PullQuote
+      quote="Every system ships. Every process is measurable. Every build has a purpose."
+      attribution="Brian Lapinski, on his approach to work"
+    />
 
     <!-- Services columns -->
-    <section class="section scroll-exit">
+    <section id="services" class="section scroll-exit">
       <div class="container">
         <h4 class="section-head scroll-reveal-left">Services Directory</h4>
         <div class="grid grid--2 mt-8">

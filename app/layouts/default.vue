@@ -5,6 +5,7 @@
     <div class="scroll-progress" />
     <div class="newspaper__page">
       <div class="newspaper__content">
+        <InkSpots />
         <NewsTicker />
         <AppHeader />
         <main>
@@ -42,5 +43,6 @@
 
 .newspaper__content {
   position: relative;
+  overflow: hidden;
 }
 </style>

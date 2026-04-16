@@ -247,8 +247,11 @@ onMounted(() => {
                 <h3 class="story__headline ink-bleed mt-2">{{ featuredProjects[0].headline }}</h3>
                 <p class="story__deck mt-2">{{ featuredProjects[0].deck }}</p>
                 <p class="story__body mt-4">{{ featuredProjects[0].body }}</p>
+                <p v-if="featuredProjects[0].pullQuote" class="story__pull-quote mt-4">
+                  &ldquo;{{ featuredProjects[0].pullQuote }}&rdquo;
+                </p>
                 <div class="story__foot mt-4">
-                  <span class="dateline">{{ featuredProjects[0].dateline }} — {{ featuredProjects[0].byline }}</span>
+                  <span class="dateline">{{ featuredProjects[0].dateline }} &mdash; {{ featuredProjects[0].byline }}</span>
                 </div>
               </div>
               <figure v-if="featuredProjects[0].image" class="story__lead-img">
@@ -684,6 +687,17 @@ onMounted(() => {
   font-size: 0.8125rem;
   line-height: 1.7;
   max-width: 60ch;
+}
+
+.story__pull-quote {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--ink);
+  border-left: 2px solid var(--ink);
+  padding-left: var(--space-4);
+  max-width: 45ch;
 }
 
 .story__foot {

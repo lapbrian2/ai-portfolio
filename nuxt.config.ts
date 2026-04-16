@@ -8,7 +8,8 @@ export default defineNuxtConfig({
 
   googleFonts: {
     families: {
-      'Instrument+Serif': [400],
+      'Playfair+Display': [400, 700, '400italic', '700italic'],
+      'Libre+Caslon+Text': [400, 700, '400italic'],
       'DM+Sans': [400, 500, 600],
     },
     display: 'swap',

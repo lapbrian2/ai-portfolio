@@ -70,7 +70,7 @@
 .texture-layer {
   position: fixed;
   inset: 0;
-  z-index: 2;
+  z-index: 9;
   pointer-events: none;
   overflow: hidden;
 }
@@ -143,7 +143,7 @@
 /* Ink spots — press splatter */
 .ink-spot {
   position: absolute;
-  background: rgba(21, 18, 16, 0.15);
+  background: rgba(21, 18, 16, 0.35);
   border-radius: 50%;
 }
 

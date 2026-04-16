@@ -16,20 +16,71 @@ const storyImageRef = ref<HTMLElement | null>(null)
 // Scroll velocity skew on headlines
 useScrollVelocity('h1, h2, h3, .story__headline')
 
+// Subtle page tilt on mouse — like holding a newspaper
+usePageTilt()
+
 // Hover reveal on stories section
 useHoverReveal(storiesRef, storyImageRef)
 
 onMounted(() => {
-  const { $gsap } = useNuxtApp() as any
-  if (!$gsap || !heroRef.value) return
+  const { $gsap, $ScrollTrigger } = useNuxtApp() as any
+  if (!$gsap) return
 
-  // Simple whole-element animation — no char splitting
-  $gsap.from(heroRef.value, {
-    y: 40,
-    opacity: 0,
-    duration: 1.2,
-    delay: 0.3,
-    ease: 'expo.out',
+  // Hero headline entrance
+  if (heroRef.value) {
+    $gsap.from(heroRef.value, {
+      y: 40,
+      opacity: 0,
+      duration: 1.2,
+      delay: 0.3,
+      ease: 'expo.out',
+    })
+  }
+
+  // Parallax on hero image — moves slower than headline
+  const heroImg = document.querySelector('.banner__image')
+  if (heroImg) {
+    $gsap.to(heroImg, {
+      yPercent: -15,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.banner',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      },
+    })
+  }
+
+  // Stories slide in from alternating sides
+  const stories = document.querySelectorAll('.stories-grid .story')
+  stories.forEach((story, i) => {
+    $gsap.from(story, {
+      x: i % 2 === 0 ? -40 : 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: story,
+        start: 'top 85%',
+        once: true,
+      },
+    })
+  })
+
+  // Pull quotes scale up on scroll
+  document.querySelectorAll('.pull-quote').forEach((pq) => {
+    $gsap.from(pq, {
+      scale: 0.95,
+      opacity: 0,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: pq,
+        start: 'top 80%',
+        once: true,
+      },
+    })
   })
 })
 </script>
@@ -306,13 +357,20 @@ onMounted(() => {
 /* Banner layout — headline + image side by side */
 .banner__layout {
   display: grid;
-  gap: var(--gutter);
+  gap: var(--space-8);
   align-items: start;
 }
 
 @media (min-width: 768px) {
   .banner__layout {
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-12);
+  }
+}
+
+@media (min-width: 1024px) {
+  .banner__layout {
+    grid-template-columns: 1fr 1fr;
   }
 }
 

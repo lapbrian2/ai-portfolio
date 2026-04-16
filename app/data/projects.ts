@@ -20,16 +20,7 @@ export const projects: Project[] = [
     url: 'https://ml-systems-universe.vercel.app/',
     tags: ['Three.js', 'GSAP', 'Data Visualization'],
   },
-  {
-    title: 'CLI-Anything',
-    headline: 'Revolutionary Tool Turns Desktop Software Into AI-Controllable Agents',
-    description: 'A harness system that wraps GUI applications — GIMP, Blender, Inkscape, Draw.io — in Python APIs, exposing 22 MCP tools for agent orchestration. Desktop software becomes programmable without modification.',
-    byline: 'Brian Lapinski',
-    dateline: 'Toronto',
-    category: 'ai',
-    tags: ['Python', 'MCP', 'Automation'],
-  },
-  {
+{
     title: 'Skills Orchestrator',
     headline: 'Multi-Agent System Manages 46 Skills With Dynamic Routing and Memory',
     description: 'A skill registry, memory system, and routing engine that matches incoming tasks to the right skill, loads instructions on demand, and logs execution history for continuous improvement. The backbone of an AI engineering workflow.',

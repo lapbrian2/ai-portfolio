@@ -32,8 +32,8 @@ function onMouseLeaveWindow() {
 }
 
 function animate() {
-  x.value += (targetX - x.value) * 0.12
-  y.value += (targetY - y.value) * 0.12
+  x.value += (targetX - x.value) * 0.15
+  y.value += (targetY - y.value) * 0.15
   rafId = requestAnimationFrame(animate)
 }
 
@@ -77,6 +77,11 @@ onUnmounted(() => {
     :style="{ transform: `translate(${x}px, ${y}px)` }"
     aria-hidden="true"
   >
+    <!-- Magnifying glass lens effect -->
+    <div class="cursor__lens" />
+    <!-- Glass handle -->
+    <div v-if="hovering" class="cursor__handle" />
+    <!-- Label text -->
     <span v-if="hoverText" class="cursor__text">{{ hoverText }}</span>
   </div>
 </template>
@@ -86,46 +91,75 @@ onUnmounted(() => {
   position: fixed;
   top: 0;
   left: 0;
-  width: 10px;
-  height: 10px;
-  margin-left: -5px;
-  margin-top: -5px;
-  background: var(--ink);
-  border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
   opacity: 0;
-  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              margin 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.25s ease,
-              opacity 0.3s ease;
   will-change: transform;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .cursor--visible {
   opacity: 1;
 }
 
-.cursor--hover {
-  width: 56px;
-  height: 56px;
-  margin-left: -28px;
-  margin-top: -28px;
-  background: var(--red);
+/* Default: tiny ink dot */
+.cursor__lens {
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+  background: var(--ink);
+  border-radius: 50%;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Hover: magnifying glass lens */
+.cursor--hover .cursor__lens {
+  width: 48px;
+  height: 48px;
+  margin-left: -24px;
+  margin-top: -24px;
+  background: transparent;
+  border: 1.5px solid var(--ink);
+  backdrop-filter: brightness(1.08) contrast(1.05);
+  -webkit-backdrop-filter: brightness(1.08) contrast(1.05);
+  box-shadow:
+    inset 0 0 12px rgba(255, 255, 255, 0.15),
+    inset 0 0 4px rgba(255, 255, 255, 0.1),
+    0 2px 8px rgba(26, 23, 20, 0.1);
+}
+
+/* Handle — angled line from the lens */
+.cursor__handle {
+  position: absolute;
+  bottom: -14px;
+  right: -10px;
+  width: 18px;
+  height: 1.5px;
+  background: var(--ink);
+  transform: rotate(45deg);
+  transform-origin: left center;
+  animation: handleAppear 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes handleAppear {
+  from { transform: rotate(45deg) scaleX(0); }
+  to { transform: rotate(45deg) scaleX(1); }
+}
+
+/* Label */
 .cursor__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-family: var(--font-mono);
-  font-size: 0.4375rem;
+  font-size: 0.375rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: white;
+  color: var(--ink);
+  white-space: nowrap;
   opacity: 0;
-  transition: opacity 0.2s ease 0.1s;
+  transition: opacity 0.2s ease 0.15s;
 }
 
 .cursor--hover .cursor__text {

@@ -51,20 +51,33 @@ onMounted(() => {
           <span class="dateline">Final Edition</span>
         </div>
 
-        <div class="banner__content">
-          <p class="kicker mb-4">Exclusive Report</p>
-          <h1 ref="heroRef" class="ink-bleed headline-animate">
-            From Amazon Operations to AI Engineering: One Builder's Leap Into the Future
-          </h1>
-          <div class="banner__deck mt-6 scroll-fade">
-            <p class="deck">
-              Lean Six Sigma-certified entrepreneur now ships production AI systems
-              and immersive web experiences from his Toronto studio.
-            </p>
+        <div class="banner__layout">
+          <div class="banner__content">
+            <p class="kicker mb-4">Exclusive Report</p>
+            <h1 ref="heroRef" class="ink-bleed headline-animate">
+              From Amazon Operations to AI Engineering: One Builder's Leap Into the Future
+            </h1>
+            <div class="banner__deck mt-6 scroll-fade">
+              <p class="deck">
+                Lean Six Sigma-certified entrepreneur now ships production AI systems
+                and immersive web experiences from his Toronto studio.
+              </p>
+            </div>
+            <div class="banner__meta mt-4 scroll-fade">
+              <span class="dateline">By Brian Lapinski &mdash; Toronto, Canada</span>
+            </div>
           </div>
-          <div class="banner__meta mt-4 scroll-fade">
-            <span class="dateline">By Brian Lapinski &mdash; Toronto, Canada</span>
-          </div>
+          <figure class="banner__image scroll-scale">
+            <img
+              src="/images/hero-brain.png"
+              alt="Pulp sci-fi illustration of a mechanical brain"
+              class="halftone-img"
+              loading="eager"
+            />
+            <figcaption class="banner__caption">
+              Illustration: The AI Engineer's Mind — a study in biological and mechanical intelligence.
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -116,6 +129,8 @@ onMounted(() => {
                 <dd class="available">Taking contracts</dd>
               </div>
             </dl>
+
+            <WeatherBox class="mt-8 scroll-scale" />
 
             <div class="sidebar__ad mt-8 scroll-scale">
               <p class="ad-label">ADVERTISEMENT</p>
@@ -178,7 +193,8 @@ onMounted(() => {
       </div>
     </section>
 
-    <div class="container"><hr class="rule rule--double scroll-rule" /></div>
+    <!-- Classified Ads — horizontal scroll -->
+    <ClassifiedAds />
 
     <!-- Services columns -->
     <section class="section scroll-exit">
@@ -230,8 +246,51 @@ onMounted(() => {
   margin-bottom: var(--space-8);
 }
 
+/* Banner layout — headline + image side by side */
+.banner__layout {
+  display: grid;
+  gap: var(--gutter);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .banner__layout {
+    grid-template-columns: 1.4fr 1fr;
+  }
+}
+
 .banner__content {
   max-width: 900px;
+}
+
+.banner__image {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--rule-light);
+}
+
+.banner__image img {
+  width: 100%;
+  display: block;
+}
+
+/* Halftone newspaper print effect on images */
+.halftone-img {
+  filter: grayscale(80%) contrast(1.15) brightness(1.05) sepia(25%);
+  transition: filter var(--duration-slow) var(--ease-out);
+}
+
+.banner__image:hover .halftone-img {
+  filter: grayscale(30%) contrast(1.1) brightness(1.0) sepia(15%);
+}
+
+.banner__caption {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  color: var(--ink-faded);
+  padding: var(--space-2) var(--space-3);
+  border-top: 1px solid var(--rule-light);
+  font-style: italic;
 }
 
 .banner__deck {

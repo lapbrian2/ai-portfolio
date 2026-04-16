@@ -123,17 +123,29 @@ useScrollVelocity('.ink-bleed')
       </div>
     </section>
 
-    <div class="container"><hr class="rule" /></div>
+    <!-- Illustration -->
+    <section style="padding: var(--space-6) 0;">
+      <div class="container">
+        <figure class="page-illustration scroll-scale">
+          <img src="/images/practice-2.png" alt="The correspondent at work" class="img-hover" loading="lazy" />
+          <figcaption class="page-illustration__caption">
+            (Staff Illustration) &mdash; Your correspondent, hard at work in the archives.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <OrnamentalRule />
 
     <!-- CTA -->
     <section class="section">
       <div class="container text-center scroll-reveal">
-        <h2 class="ink-bleed">Ready to Start?</h2>
+        <h2 class="ink-bleed">Get in Touch</h2>
         <p class="mt-4 text-center" style="margin: var(--space-4) auto 0; max-width: 45ch;">
-          Tell me what you're building. I'll tell you how I can help.
+          Every letter is read. Every message answered.
         </p>
         <div class="mt-8">
-          <NuxtLink to="/contact" class="btn" data-cursor>Send an Enquiry &rarr;</NuxtLink>
+          <NuxtLink to="/contact" class="btn" data-cursor>Write to Us &rarr;</NuxtLink>
         </div>
       </div>
     </section>

@@ -52,26 +52,56 @@ onMounted(() => {
     })
   }
 
-  // Stories slide in from alternating sides
-  const stories = document.querySelectorAll('.stories-grid .story')
-  stories.forEach((story, i) => {
-    $gsap.from(story, {
-      x: i % 2 === 0 ? -40 : 40,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: story,
-        start: 'top 85%',
-        once: true,
-      },
-    })
+  // Batch reveal — all story elements reveal as a coordinated group
+  $ScrollTrigger.batch('.secondary, .brief, .lead', {
+    onEnter: (elements: Element[]) => {
+      $gsap.fromTo(elements,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, stagger: 0.08, duration: 0.7, ease: 'power3.out' }
+      )
+    },
+    start: 'top 88%',
+  })
+
+  // Lead story image — clip-path reveal (wipe from left)
+  const leadImg = document.querySelector('.lead__fig img')
+  if (leadImg) {
+    $gsap.fromTo(leadImg,
+      { clipPath: 'inset(0 100% 0 0)' },
+      {
+        clipPath: 'inset(0 0% 0 0)',
+        duration: 1.2,
+        ease: 'power3.inOut',
+        scrollTrigger: {
+          trigger: leadImg,
+          start: 'top 80%',
+          once: true,
+        },
+      }
+    )
+  }
+
+  // Secondary images — clip reveal from bottom
+  document.querySelectorAll('.secondary__fig img').forEach((img) => {
+    $gsap.fromTo(img,
+      { clipPath: 'inset(100% 0 0 0)' },
+      {
+        clipPath: 'inset(0% 0 0 0)',
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: img,
+          start: 'top 85%',
+          once: true,
+        },
+      }
+    )
   })
 
   // Pull quotes scale up on scroll
-  document.querySelectorAll('.pull-quote').forEach((pq) => {
+  document.querySelectorAll('.pq').forEach((pq) => {
     $gsap.from(pq, {
-      scale: 0.95,
+      scale: 0.93,
       opacity: 0,
       duration: 1,
       ease: 'power2.out',

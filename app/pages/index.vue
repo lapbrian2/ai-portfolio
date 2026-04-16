@@ -194,42 +194,63 @@ onMounted(() => {
       <div class="container">
         <h4 class="section-head scroll-reveal-left">Featured Stories</h4>
 
-        <!-- Floating hover image -->
-        <div ref="storyImageRef" class="story-hover-img">
-          <img src="/images/hero-brain.png" alt="" class="halftone-img" />
-        </div>
-
-        <div ref="storiesRef" class="stories mt-8 scroll-stagger">
-          <article
-            v-for="(project, i) in featuredProjects"
-            :key="project.title"
-            class="story"
-            :class="{ 'story--lead': i === 0 }"
-          >
+        <div ref="storiesRef" class="stories mt-8">
+          <!-- Lead story — larger, with image -->
+          <article class="story story--lead scroll-reveal" v-if="featuredProjects[0]">
             <component
-              :is="project.url ? 'a' : 'div'"
-              :href="project.url"
-              :target="project.url ? '_blank' : undefined"
-              class="story__inner"
+              :is="featuredProjects[0].url ? 'a' : 'div'"
+              :href="featuredProjects[0].url"
+              :target="featuredProjects[0].url ? '_blank' : undefined"
+              class="story__lead-inner"
               data-cursor
               data-cursor-text="Read"
             >
-              <div class="story__head">
-                <span class="kicker">{{ project.category === 'ai' ? 'AI Engineering' : project.category === 'web' ? 'Web Development' : 'Creative' }}</span>
-              </div>
-              <h3 class="story__headline" :class="{ 'ink-bleed': i === 0 }">
-                {{ project.headline }}
-              </h3>
-              <p class="story__body mt-2">{{ project.description }}</p>
-              <div class="story__foot mt-3">
-                <span class="dateline">{{ project.dateline }} &mdash; {{ project.byline }}</span>
-                <div class="story__tags">
-                  <span v-for="tag in project.tags" :key="tag" class="story__tag">{{ tag }}</span>
+              <div class="story__lead-text">
+                <span class="kicker">{{ featuredProjects[0].category === 'art' ? 'Art' : featuredProjects[0].category === 'tech' ? 'Technology' : 'Creative' }}</span>
+                <h3 class="story__headline ink-bleed mt-2">{{ featuredProjects[0].headline }}</h3>
+                <p class="story__deck mt-2">{{ featuredProjects[0].deck }}</p>
+                <p class="story__body mt-4">{{ featuredProjects[0].body }}</p>
+                <div class="story__foot mt-4">
+                  <span class="dateline">{{ featuredProjects[0].dateline }} — {{ featuredProjects[0].byline }}</span>
                 </div>
               </div>
+              <figure v-if="featuredProjects[0].image" class="story__lead-img">
+                <img :src="featuredProjects[0].image" :alt="featuredProjects[0].title" class="halftone-img" loading="lazy" />
+              </figure>
             </component>
-            <hr class="rule" />
+            <hr class="rule rule--thick" />
           </article>
+
+          <!-- Remaining stories — compact list -->
+          <div class="stories-grid scroll-stagger">
+            <article
+              v-for="project in featuredProjects.slice(1)"
+              :key="project.title"
+              class="story"
+            >
+              <component
+                :is="project.url ? 'a' : 'div'"
+                :href="project.url"
+                :target="project.url ? '_blank' : undefined"
+                class="story__inner"
+                data-cursor
+                data-cursor-text="Read"
+              >
+                <figure v-if="project.image" class="story__thumb">
+                  <img :src="project.image" :alt="project.title" class="halftone-img" loading="lazy" />
+                </figure>
+                <div>
+                  <span class="kicker">{{ project.category === 'art' ? 'Art' : project.category === 'tech' ? 'Technology' : 'Creative' }}</span>
+                  <h3 class="story__headline mt-1">{{ project.headline }}</h3>
+                  <p class="story__deck mt-1">{{ project.deck }}</p>
+                  <div class="story__foot mt-3">
+                    <span class="dateline">{{ project.dateline }} — {{ project.byline }}</span>
+                  </div>
+                </div>
+              </component>
+              <hr class="rule" />
+            </article>
+          </div>
         </div>
 
         <div class="mt-8 text-center scroll-reveal">
@@ -482,75 +503,114 @@ onMounted(() => {
   max-width: none;
 }
 
-/* Story hover image — floats on right, follows cursor */
-.story-hover-img {
-  position: absolute;
-  right: var(--space-8);
-  top: 0;
-  width: 280px;
-  pointer-events: none;
-  z-index: 10;
-  display: none;
-  opacity: 0;
-  border: 1px solid var(--rule-light);
-}
-
-.story-hover-img img {
-  width: 100%;
-  display: block;
-}
-
-@media (max-width: 1024px) {
-  .story-hover-img { display: none !important; }
-}
-
 /* Stories */
-.stories { display: flex; flex-direction: column; position: relative; }
+.stories {
+  display: flex;
+  flex-direction: column;
+}
 
-.story__inner {
-  display: block;
+/* Lead story — large, with side image */
+.story__lead-inner {
+  display: grid;
+  gap: var(--space-8);
   padding: var(--space-6) 0;
   text-decoration: none;
   color: inherit;
-  transition: padding-left var(--duration-base) var(--ease-out);
 }
 
-.story__inner:hover { padding-left: var(--space-3); }
-.story__inner:hover .story__headline { color: var(--red); }
+@media (min-width: 768px) {
+  .story__lead-inner {
+    grid-template-columns: 1.5fr 1fr;
+    align-items: start;
+  }
+}
 
-.story__headline {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  transition: color var(--duration-base) var(--ease-out);
+.story__lead-inner:hover .story__headline {
+  color: var(--red);
+}
+
+.story__lead-img {
+  margin: 0;
+}
+
+.story__lead-img img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--rule-light);
 }
 
 .story--lead .story__headline {
   font-size: clamp(1.5rem, 3vw, 2.25rem);
 }
 
+.story__deck {
+  font-style: italic;
+  font-size: 0.875rem;
+  color: var(--ink-faded);
+  max-width: 55ch;
+}
+
+/* Story grid — remaining stories in columns */
+.stories-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+@media (min-width: 768px) {
+  .stories-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0 var(--space-6);
+  }
+
+  .stories-grid > .story:nth-child(even) {
+    border-left: 1px solid var(--rule-light);
+    padding-left: var(--space-6);
+  }
+}
+
+.story__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  padding: var(--space-6) 0;
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left var(--duration-base) var(--ease-out);
+}
+
+@media (min-width: 640px) {
+  .story__inner {
+    grid-template-columns: 120px 1fr;
+  }
+}
+
+.story__inner:hover { padding-left: var(--space-2); }
+.story__inner:hover .story__headline { color: var(--red); }
+
+.story__thumb {
+  margin: 0;
+}
+
+.story__thumb img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--rule-light);
+}
+
+.story__headline {
+  font-size: clamp(1rem, 2vw, 1.375rem);
+  transition: color var(--duration-base) var(--ease-out);
+}
+
 .story__body {
   font-size: 0.8125rem;
   line-height: 1.7;
-  max-width: 65ch;
+  max-width: 60ch;
 }
 
 .story__foot {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.story__tags { display: flex; gap: var(--space-2); }
-
-.story__tag {
-  font-family: var(--font-mono);
-  font-size: 0.5rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-ghost);
-  padding: 1px 5px;
-  border: 1px solid var(--rule-light);
+  padding-top: var(--space-2);
 }
 
 @media (max-width: 768px) {

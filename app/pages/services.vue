@@ -1,112 +1,126 @@
 <script setup lang="ts">
-const processRef = ref<HTMLElement | null>(null)
-const aiRef = ref<HTMLElement | null>(null)
-const webRef = ref<HTMLElement | null>(null)
-
-useScrollReveal(processRef, { stagger: 0.15 })
-useScrollReveal(aiRef)
-useScrollReveal(webRef)
-
-useHead({ title: 'Services — Brian Lapinski' })
+useHead({ title: 'Services — The Brian Lapinski Record' })
+useScrollVelocity('.ink-bleed')
 </script>
 
 <template>
   <div>
     <section class="section">
       <div class="container">
-        <p class="overline mb-4">Services</p>
-        <h1>What I build</h1>
-        <p class="mt-6 text-secondary hero-desc">
-          I help companies build AI systems that work in production and websites that convert.
-          Available for contracts, projects, and ongoing partnerships.
-        </p>
+        <h4 class="section-head">Services Directory</h4>
+        <h2 class="ink-bleed mt-6">What I Build</h2>
+        <ScrollRevealText
+          class="deck mt-6"
+          text="From AI agent systems to immersive web experiences, every project ships with Lean Six Sigma rigor. Available for contracts, creative partnerships, and collaborations."
+        />
       </div>
     </section>
+
+    <div class="container"><hr class="rule rule--thick" /></div>
+
+    <!-- Creative -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid--sidebar">
+          <div class="scroll-reveal">
+            <h4 class="section-head">Digital Art & Creative</h4>
+            <h3 class="ink-bleed mt-4">Images That Speak Without Words</h3>
+            <p class="body-col mt-4 text-justify">
+              AI-generated art rooted in personal exploration, emotion, and connection.
+              Midjourney, ImagineArt, and custom workflows through a systematic Style DNA
+              methodology — treating image generation as reproducible craft.
+            </p>
+            <ul class="service-list mt-6">
+              <li>Digital art creation & curation</li>
+              <li>Style DNA extraction & documentation</li>
+              <li>Creative direction for AI art projects</li>
+              <li>Gallery exhibition & publication submissions</li>
+            </ul>
+          </div>
+          <aside class="sidebar scroll-reveal-slow">
+            <div class="sidebar-box">
+              <div class="sidebar-box__title">Credentials</div>
+              <ul class="credential-list">
+                <li>Lürzer's Archive 200 Best Digital Artists</li>
+                <li>creAtIva Magazine Vol. 7</li>
+                <li>Choice Dao 2026 Mover and Shaker</li>
+                <li>ImagineArt Ambassador</li>
+                <li>Caimera Creative Partner</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><hr class="rule" /></div>
 
     <!-- AI Engineering -->
-    <section ref="aiRef" class="section section--surface">
+    <section class="section">
       <div class="container">
-        <p class="overline mb-4">AI Engineering</p>
-        <h2>Intelligent systems that ship</h2>
-        <div class="grid grid--2 mt-8">
-          <div class="service-item">
-            <h4>Agents & Orchestration</h4>
-            <p class="mt-2 text-secondary service-item__desc">Multi-agent systems, tool-use patterns, autonomous workflows. Claude, OpenAI, custom LLM pipelines.</p>
+        <div class="grid grid--2">
+          <div class="scroll-reveal">
+            <h4 class="section-head">AI Engineering</h4>
+            <h3 class="ink-bleed mt-4">Intelligent Systems That Ship</h3>
+            <p class="body-col mt-4 text-justify">
+              Multi-agent systems, MCP server integrations, RAG pipelines, and full-stack AI applications.
+              Production AI built with enterprise rigor — not hackathon demos.
+            </p>
+            <ul class="service-list mt-6">
+              <li>Agent orchestration & tool-use patterns</li>
+              <li>MCP server development (Python, TypeScript)</li>
+              <li>RAG pipelines with eval frameworks</li>
+              <li>Full-stack AI applications</li>
+              <li>AI workflow automation</li>
+            </ul>
+            <p class="price mt-6">Starting at $175/hr</p>
           </div>
-          <div class="service-item">
-            <h4>MCP Integrations</h4>
-            <p class="mt-2 text-secondary service-item__desc">Connect your internal tools to AI. Custom MCP servers, tool definitions, structured output.</p>
-          </div>
-          <div class="service-item">
-            <h4>RAG Pipelines</h4>
-            <p class="mt-2 text-secondary service-item__desc">Retrieval-augmented generation with vector stores, chunking strategies, and eval frameworks.</p>
-          </div>
-          <div class="service-item">
-            <h4>Full-Stack AI Apps</h4>
-            <p class="mt-2 text-secondary service-item__desc">End-to-end applications with AI features. From prototype to production.</p>
+          <div class="col-ruled scroll-reveal-slow">
+            <h4 class="section-head">Web Development</h4>
+            <h3 class="ink-bleed mt-4">Experiences That Stop the Scroll</h3>
+            <p class="body-col mt-4 text-justify">
+              Custom Nuxt and Vue sites, immersive Three.js experiences, scroll-driven animations,
+              and design systems. Performance-first architecture.
+            </p>
+            <ul class="service-list mt-6">
+              <li>Custom websites (Nuxt, Vue, React)</li>
+              <li>Immersive 3D & WebGL experiences</li>
+              <li>Scroll-driven animations (GSAP, Lenis)</li>
+              <li>Custom GLSL shaders</li>
+              <li>Small business packages with SEO</li>
+            </ul>
+            <p class="price mt-6">Sites from $2,500 &middot; Contracts from $175/hr</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Web Development -->
-    <section ref="webRef" class="section">
-      <div class="container">
-        <p class="overline mb-4">Web Development</p>
-        <h2>Sites that prove your brand</h2>
-        <div class="grid grid--2 mt-8">
-          <div class="service-item">
-            <h4>Custom Websites</h4>
-            <p class="mt-2 text-secondary service-item__desc">Nuxt, Vue, React. Performance-first architecture. SEO and accessibility built in.</p>
-          </div>
-          <div class="service-item">
-            <h4>Immersive Experiences</h4>
-            <p class="mt-2 text-secondary service-item__desc">Three.js, WebGL, GSAP. Scroll-driven storytelling. The kind of sites that win awards.</p>
-          </div>
-          <div class="service-item">
-            <h4>Design Systems</h4>
-            <p class="mt-2 text-secondary service-item__desc">Typography, color, spacing, motion — codified into reusable component libraries.</p>
-          </div>
-          <div class="service-item">
-            <h4>Small Business Packages</h4>
-            <p class="mt-2 text-secondary service-item__desc">Get found online. Custom site + Google Business + local SEO. Starting at $2,500.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="container"><hr class="rule rule--thick" /></div>
 
     <!-- Process -->
-    <section ref="processRef" class="section section--surface">
+    <section class="section">
       <div class="container">
-        <p class="overline mb-4">Process</p>
-        <h2>How it works</h2>
-        <div class="mt-8 process-list">
-          <ProcessStep
-            number="01"
-            title="Talk"
-            description="We get on a call. You tell me what you need. I tell you what it'll take. No surprises."
-          />
-          <ProcessStep
-            number="02"
-            title="Build"
-            description="I build it. You see progress. We iterate fast until it's right."
-          />
-          <ProcessStep
-            number="03"
-            title="Ship"
-            description="It goes live. I make sure everything works. You get the keys."
-          />
+        <h4 class="section-head">Process</h4>
+        <h2 class="ink-bleed mt-6">How It Works</h2>
+        <div class="process mt-12 scroll-stagger">
+          <ProcessStep number="01" title="Talk" description="We get on a call. You tell me what you need. I tell you what it'll take. No surprises, no jargon." />
+          <ProcessStep number="02" title="Build" description="I build it. You see progress. We iterate fast until it's right. Lean methodology — eliminate waste, ship value." />
+          <ProcessStep number="03" title="Ship" description="It goes live. I verify everything works. You get the keys. Documentation included." />
         </div>
       </div>
     </section>
+
+    <div class="container"><hr class="rule" /></div>
 
     <!-- CTA -->
     <section class="section">
-      <div class="container text-center">
-        <h2>Ready to start?</h2>
-        <p class="mt-4 text-secondary">Tell me what you're building. I'll tell you how I can help.</p>
+      <div class="container text-center scroll-reveal">
+        <h2 class="ink-bleed">Ready to Start?</h2>
+        <p class="mt-4 text-center" style="margin: var(--space-4) auto 0; max-width: 45ch;">
+          Tell me what you're building. I'll tell you how I can help.
+        </p>
         <div class="mt-8">
-          <NuxtLink to="/contact" class="btn btn--primary">Get in touch</NuxtLink>
+          <NuxtLink to="/contact" class="btn" data-cursor>Send an Enquiry &rarr;</NuxtLink>
         </div>
       </div>
     </section>
@@ -114,16 +128,79 @@ useHead({ title: 'Services — Brian Lapinski' })
 </template>
 
 <style scoped>
-.hero-desc {
-  font-size: 1.125rem;
+.deck {
+  font-size: 1.0625rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--ink-light);
   max-width: 55ch;
 }
 
-.service-item__desc {
+.body-col {
   font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--ink-light);
+  max-width: none;
 }
 
-.process-list {
+.service-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.service-list li {
+  font-size: 0.8125rem;
+  color: var(--ink-light);
+  padding-left: var(--space-6);
+  position: relative;
+}
+
+.service-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 12px;
+  height: 1px;
+  background: var(--red);
+}
+
+.price {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--red);
+  max-width: none;
+}
+
+.process {
   max-width: 600px;
+}
+
+.credential-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0;
+}
+
+.credential-list li {
+  font-size: 0.6875rem;
+  color: var(--ink-light);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.sidebar {
+  padding-top: var(--space-2);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    margin-top: var(--space-8);
+  }
 }
 </style>

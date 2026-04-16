@@ -1,88 +1,108 @@
 <script setup lang="ts">
+/**
+ * Horizontal scrolling classified ads — GSAP ScrollTrigger pinned + scrubbed.
+ * The section pins in place while the ads scroll horizontally through.
+ */
+const wrapperRef = ref<HTMLElement | null>(null)
+const trackRef = ref<HTMLElement | null>(null)
+
 const ads = [
   {
     category: 'SERVICES',
     title: 'AI Agent Development',
-    body: 'Custom multi-agent systems built to spec. MCP server integration, tool orchestration, memory systems. Production-grade. No demos.',
+    body: 'Custom multi-agent systems built to spec. MCP server integration, tool orchestration, memory systems. Production-grade.',
     price: 'From $175/hr',
-    contact: true,
   },
   {
     category: 'SERVICES',
     title: 'Website Design & Build',
     body: 'Custom Nuxt sites with Three.js, GSAP, scroll-driven animations. SEO & Google Business included. 3-5 day delivery.',
     price: 'From $2,500',
-    contact: true,
   },
   {
     category: 'HELP WANTED',
-    title: 'Looking for Clients',
-    body: 'Experienced AI engineer & web developer seeks interesting problems. Lean Six Sigma background. Will ship on time.',
-    price: 'Competitive',
-    contact: true,
+    title: 'Seeking Interesting Problems',
+    body: 'Experienced builder seeks challenges others avoid. Must require both creative and technical skill. No boring allowed.',
+    price: '',
   },
   {
     category: 'FOR SALE',
     title: 'RAG Pipeline Setup',
     body: 'Vector store configuration, chunking strategy, eval framework. Your documents, searchable by AI. One-time setup.',
     price: 'Project-based',
-    contact: true,
   },
   {
     category: 'ANNOUNCEMENT',
-    title: 'Now Accepting Contracts',
-    body: 'Brian Lapinski is available for AI engineering and web development contracts. Toronto-based, remote-friendly.',
+    title: 'Now Open for Contracts',
+    body: 'Brian Lapinski is available for AI engineering and creative web development. Remote-friendly, Lean Six Sigma approach.',
     price: '',
-    contact: true,
   },
   {
     category: 'SERVICES',
     title: 'MCP Server Integration',
-    body: 'Connect your internal tools to Claude, GPT, or custom LLMs. 22 tools built and counting. Python & TypeScript.',
+    body: 'Connect your internal tools to Claude, GPT, or custom LLMs. Python & TypeScript. Built and tested in production.',
     price: 'From $175/hr',
-    contact: true,
   },
   {
     category: 'FOR SALE',
     title: 'Immersive Web Experience',
-    body: 'Three.js + GSAP + Lenis. Scroll-driven 3D. Custom GLSL shaders. The kind of site that wins awards and converts visitors.',
+    body: 'Three.js + GSAP + Lenis. Scroll-driven 3D. Custom GLSL shaders. The kind of site that wins awards and stops the scroll.',
     price: 'From $5,000',
-    contact: true,
   },
   {
     category: 'PERSONALS',
-    title: 'Seeking: Hard Problems',
-    body: 'Builder with ops background seeks challenges others avoid. Must require both AI and web skills. No boring allowed.',
+    title: 'Images That Speak Without Words',
+    body: 'Digital artist exploring what it means to be human. Lürzer\'s Archive 200 Best. Available for creative partnerships.',
     price: '',
-    contact: true,
   },
 ]
+
+onMounted(() => {
+  const { $gsap, $ScrollTrigger } = useNuxtApp() as any
+  if (!$gsap || !wrapperRef.value || !trackRef.value) return
+
+  const track = trackRef.value
+  const scrollWidth = track.scrollWidth - wrapperRef.value.offsetWidth
+
+  $gsap.to(track, {
+    x: -scrollWidth,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: wrapperRef.value,
+      start: 'top 20%',
+      end: () => `+=${scrollWidth}`,
+      pin: true,
+      scrub: 1,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+    },
+  })
+})
 </script>
 
 <template>
-  <section class="classifieds">
+  <section ref="wrapperRef" class="classifieds">
     <div class="classifieds__header container">
       <hr class="rule rule--thick" />
       <h4 class="classifieds__title">Classified Advertisements</h4>
       <hr class="rule" />
     </div>
 
-    <div class="classifieds__scroll">
-      <div class="classifieds__track">
+    <div class="classifieds__viewport">
+      <div ref="trackRef" class="classifieds__track">
         <div
           v-for="(ad, i) in ads"
           :key="i"
-          class="classified-card"
+          class="cl-card"
         >
-          <span class="classified-card__cat">{{ ad.category }}</span>
-          <h3 class="classified-card__title">{{ ad.title }}</h3>
-          <p class="classified-card__body">{{ ad.body }}</p>
-          <div class="classified-card__footer">
-            <span v-if="ad.price" class="classified-card__price">{{ ad.price }}</span>
+          <div class="cl-card__cat">{{ ad.category }}</div>
+          <h3 class="cl-card__title">{{ ad.title }}</h3>
+          <p class="cl-card__body">{{ ad.body }}</p>
+          <div class="cl-card__footer">
+            <span v-if="ad.price" class="cl-card__price">{{ ad.price }}</span>
             <NuxtLink
-              v-if="ad.contact"
               to="/contact"
-              class="classified-card__link"
+              class="cl-card__link"
               data-cursor
               data-cursor-text="Reply"
             >
@@ -97,7 +117,7 @@ const ads = [
 
 <style scoped>
 .classifieds {
-  padding: var(--space-16) 0;
+  padding: var(--space-16) 0 var(--space-8);
   overflow: hidden;
 }
 
@@ -110,16 +130,9 @@ const ads = [
   letter-spacing: 0.02em;
 }
 
-.classifieds__scroll {
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+.classifieds__viewport {
+  overflow: hidden;
   padding: var(--space-8) var(--space-6);
-}
-
-.classifieds__scroll::-webkit-scrollbar {
-  display: none;
 }
 
 .classifieds__track {
@@ -129,45 +142,49 @@ const ads = [
   background: var(--rule-light);
 }
 
-.classified-card {
-  width: 260px;
+.cl-card {
+  width: 280px;
   flex-shrink: 0;
   padding: var(--space-6);
   background: var(--paper);
   display: flex;
   flex-direction: column;
+  transition: background-color var(--duration-base) var(--ease-out);
 }
 
-.classified-card__cat {
+.cl-card:hover {
+  background: var(--paper-dark);
+}
+
+.cl-card__cat {
   font-family: var(--font-body);
-  font-size: 0.5rem;
+  font-size: 0.4375rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--ink-ghost);
+  letter-spacing: 0.18em;
   background: var(--ink);
   color: var(--paper);
-  padding: 1px 6px;
+  padding: 2px 8px;
   align-self: flex-start;
 }
 
-.classified-card__title {
-  margin-top: var(--space-3);
-  font-size: 1rem;
+.cl-card__title {
+  margin-top: var(--space-4);
+  font-size: 1.0625rem;
   line-height: 1.2;
 }
 
-.classified-card__body {
-  margin-top: var(--space-2);
+.cl-card__body {
+  margin-top: var(--space-3);
   font-size: 0.6875rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--ink-light);
   max-width: none;
   flex-grow: 1;
 }
 
-.classified-card__footer {
-  margin-top: var(--space-4);
+.cl-card__footer {
+  margin-top: var(--space-6);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -175,24 +192,24 @@ const ads = [
   border-top: 1px solid var(--rule-light);
 }
 
-.classified-card__price {
+.cl-card__price {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.5625rem;
   font-weight: 600;
   color: var(--red);
 }
 
-.classified-card__link {
-  font-size: 0.5625rem;
+.cl-card__link {
+  font-size: 0.5rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--ink);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-.classified-card__link:hover {
+.cl-card__link:hover {
   color: var(--red);
 }
 </style>

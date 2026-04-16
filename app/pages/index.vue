@@ -9,8 +9,15 @@ const today = new Date().toLocaleDateString('en-US', {
   year: 'numeric',
 })
 
-// GSAP-powered headline reveal (too complex for CSS — needs masked char stagger)
 const heroRef = ref<HTMLElement | null>(null)
+const storiesRef = ref<HTMLElement | null>(null)
+const storyImageRef = ref<HTMLElement | null>(null)
+
+// Scroll velocity skew on headlines
+useScrollVelocity('h1, h2, h3, .story__headline')
+
+// Hover reveal on stories section
+useHoverReveal(storiesRef, storyImageRef)
 
 onMounted(() => {
   const { $gsap } = useNuxtApp() as any
@@ -178,7 +185,12 @@ onMounted(() => {
       <div class="container">
         <h4 class="section-head scroll-reveal-left">Featured Stories</h4>
 
-        <div class="stories mt-8 scroll-stagger">
+        <!-- Floating hover image -->
+        <div ref="storyImageRef" class="story-hover-img">
+          <img src="/images/hero-brain.png" alt="" class="halftone-img" />
+        </div>
+
+        <div ref="storiesRef" class="stories mt-8 scroll-stagger">
           <article
             v-for="(project, i) in featuredProjects"
             :key="project.title"
@@ -446,8 +458,30 @@ onMounted(() => {
   border-bottom: 1px solid var(--rule-light);
 }
 
+/* Story hover image — floats on right, follows cursor */
+.story-hover-img {
+  position: absolute;
+  right: var(--space-8);
+  top: 0;
+  width: 280px;
+  pointer-events: none;
+  z-index: 10;
+  display: none;
+  opacity: 0;
+  border: 1px solid var(--rule-light);
+}
+
+.story-hover-img img {
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .story-hover-img { display: none !important; }
+}
+
 /* Stories */
-.stories { display: flex; flex-direction: column; }
+.stories { display: flex; flex-direction: column; position: relative; }
 
 .story__inner {
   display: block;

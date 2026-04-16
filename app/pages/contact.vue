@@ -1,25 +1,28 @@
 <script setup lang="ts">
-useHead({ title: 'Contact — Brian Lapinski' })
+useHead({ title: 'Contact — The Brian Lapinski Record' })
 </script>
 
 <template>
   <div>
     <section class="section">
       <div class="container">
-        <div class="contact-grid">
+        <h4 class="section-head">Letters to the Editor</h4>
+        <div class="grid grid--sidebar mt-8">
           <div>
-            <p class="overline mb-4">Contact</p>
-            <h1>Let's talk</h1>
-            <p class="mt-6 text-secondary contact-desc">
-              Have a project in mind? Need an AI engineer? Just want to say hello?
-              I'll get back to you within 24 hours.
-            </p>
+            <h2 class="ink-bleed">Send an Enquiry</h2>
+            <ScrollRevealText
+              class="deck mt-6"
+              text="Have a project in mind? Need a creative partner? Want to collaborate on something interesting? I respond to every message within 24 hours."
+            />
             <div class="contact-info mt-12">
-              <p class="overline mb-4">Or reach me directly</p>
-              <p><a href="mailto:brian@lapinski.dev">brian@lapinski.dev</a></p>
+              <h4 class="section-head">Direct Contact</h4>
+              <p class="mt-4"><a href="mailto:brian@lapinski.dev" data-cursor>brian@lapinski.dev</a></p>
+              <p class="mt-2"><a href="https://linkedin.com/in/brian-lapinski" target="_blank" rel="noopener noreferrer" data-cursor>LinkedIn</a></p>
             </div>
           </div>
-          <ContactForm />
+          <div>
+            <ContactForm />
+          </div>
         </div>
       </div>
     </section>
@@ -27,20 +30,22 @@ useHead({ title: 'Contact — Brian Lapinski' })
 </template>
 
 <style scoped>
-.contact-desc {
+.deck {
   font-size: 1.0625rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--ink-light);
   max-width: 45ch;
 }
 
-.contact-grid {
-  display: grid;
-  gap: var(--space-16);
+.contact-info a {
+  font-size: 0.875rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
-@media (min-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-  }
+.contact-info a:hover {
+  color: var(--red);
 }
 </style>

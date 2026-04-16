@@ -24,8 +24,7 @@ defineProps<{
   color: white;
   padding: var(--space-2) 0;
   overflow: hidden;
-  transform: rotate(-1deg) scale(1.02);
-  margin: var(--space-8) calc(-1 * var(--space-6));
+  margin: var(--space-8) 0;
   position: relative;
   z-index: 5;
 }

@@ -49,7 +49,7 @@ watch(() => route.path, () => { menuOpen.value = false })
         <NuxtLink to="/" class="masthead__name" data-cursor>
           Brian Lapinski
         </NuxtLink>
-        <p class="masthead__subtitle">AI Engineer & Web Developer</p>
+        <p class="masthead__subtitle">Artist &middot; Builder &middot; Engineer</p>
       </div>
 
       <hr class="rule rule--thick" />

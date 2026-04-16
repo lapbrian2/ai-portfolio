@@ -18,9 +18,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
-      title: 'Brian Lapinski — AI Engineer & Web Developer',
+      title: 'Brian Lapinski — Artist, Builder, Engineer',
       meta: [
-        { name: 'description', content: 'AI engineering and web development. Agents, MCP integrations, RAG pipelines, immersive web experiences.' },
+        { name: 'description', content: 'Digital artist, AI architect, and builder. Lürzer\'s Archive 200 Best. Exploring what it means to be human through images and code.' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'robots', content: 'index, follow' },
         { property: 'og:type', content: 'website' },

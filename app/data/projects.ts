@@ -4,57 +4,67 @@ export interface Project {
   description: string
   byline: string
   dateline: string
-  category: 'ai' | 'web' | 'creative'
+  category: 'art' | 'tech' | 'creative'
   url?: string
   tags: string[]
 }
 
 export const projects: Project[] = [
   {
-    title: 'ML Systems Universe',
-    headline: 'Developer Maps Entire Machine Learning Landscape in Interactive 3D',
-    description: 'A sprawling interactive visualization lets users explore how machine learning systems connect, from neural architectures to training pipelines. Built entirely in Three.js with data-driven node positioning and scroll-driven camera choreography.',
+    title: 'Lürzer\'s Archive',
+    headline: 'Local Artist Named to Lürzer\'s Archive 200 Best Digital Artists Worldwide',
+    description: 'Brian Lapinski was selected for Lürzer\'s Archive 200 Best Digital Artists — one of the most prestigious recognitions in the global creative industry, placing his work alongside top image-makers from around the world.',
     byline: 'Brian Lapinski',
-    dateline: 'Toronto',
-    category: 'creative',
-    url: 'https://ml-systems-universe.vercel.app/',
-    tags: ['Three.js', 'GSAP', 'Data Visualization'],
+    dateline: 'Drums, PA',
+    category: 'art',
+    tags: ['Digital Art', 'Recognition', 'Archive'],
   },
-{
-    title: 'Skills Orchestrator',
-    headline: 'Multi-Agent System Manages 46 Skills With Dynamic Routing and Memory',
-    description: 'A skill registry, memory system, and routing engine that matches incoming tasks to the right skill, loads instructions on demand, and logs execution history for continuous improvement. The backbone of an AI engineering workflow.',
+  {
+    title: 'creAtIva Vol. 7',
+    headline: 'Work Selected for creAtIva Magazine Vol. 7 With International Gallery Exhibitions',
+    description: 'Selected for creAtIva Magazine Volume 7 — Beauty. International exhibitions including Dream AI Gallery (NJ), Fundación Nestlé Barcelona, FNAC Asturias, and Art Innovation Gallery New York.',
     byline: 'Brian Lapinski',
-    dateline: 'Toronto',
-    category: 'ai',
-    tags: ['Python', 'MCP', 'Agent Architecture'],
+    dateline: 'International',
+    category: 'art',
+    tags: ['Exhibition', 'Gallery', 'Publication'],
+  },
+  {
+    title: 'The Dash',
+    headline: 'Developer Builds Command Center for AI Agent System in a Single HTML File',
+    description: 'A developer command center with 3D commit terrain, embedded Claude Code terminal, activity charts, and action tiles. 19 projects, 36 skills, 1,138 commits, one cockpit. No React, no build step — vanilla JS, Three.js, Express, WebSocket.',
+    byline: 'Brian Lapinski',
+    dateline: 'Drums, PA',
+    category: 'tech',
+    url: 'https://github.com/lapbrian2/the-dash',
+    tags: ['Three.js', 'Claude Code', 'Automation'],
   },
   {
     title: 'Art Portfolio',
     headline: 'Graffiti-Inspired Portfolio Features Hidden Easter Eggs and Scroll-Driven 3D',
     description: 'A single-file creative portfolio with Three.js spray cans, Web Audio API, Konami code party mode, UV blacklight toggle, and sticker-slap interactions. Over 3,700 lines of inline HTML, CSS, and JavaScript.',
     byline: 'Brian Lapinski',
-    dateline: 'Toronto',
+    dateline: 'Drums, PA',
     category: 'creative',
     url: 'https://brian-lapinski-portfolio.vercel.app/',
     tags: ['Three.js', 'GSAP', 'Web Audio'],
   },
   {
-    title: 'Research Radar',
-    headline: 'Autonomous Sweep Agent Discovers Frontier AI Practices on 24-Hour Cycles',
-    description: 'A Node.js automation that searches GitHub, Hugging Face, ArXiv, and dev blogs for emerging agentic architectures and MCP patterns, scoring each finding against a build-or-skip gate and routing results to structured storage.',
+    title: 'ML Systems Universe',
+    headline: 'Interactive 3D Map Charts the Entire Machine Learning Landscape',
+    description: 'A sprawling interactive visualization that lets users explore how machine learning systems connect, from neural architectures to training pipelines. Built entirely in Three.js with data-driven node positioning and scroll-driven camera choreography.',
     byline: 'Brian Lapinski',
-    dateline: 'Toronto',
-    category: 'ai',
-    tags: ['Node.js', 'Automation', 'Research'],
+    dateline: 'Drums, PA',
+    category: 'creative',
+    url: 'https://ml-systems-universe.vercel.app/',
+    tags: ['Three.js', 'GSAP', 'Data Visualization'],
   },
   {
-    title: 'Infra Insight View',
-    headline: 'Infrastructure Dashboard Surfaces Critical Alerts With Real-Time Metrics',
-    description: 'A monitoring dashboard built with Vue that displays infrastructure health, performance trends, and alert management in a dense, data-rich interface designed for at-a-glance comprehension.',
+    title: 'Choice Dao',
+    headline: 'Named 2026 Mover and Shaker by Choice Dao Community',
+    description: 'Recognized by the Choice Dao community as a 2026 Mover and Shaker for contributions to digital art and creative technology.',
     byline: 'Brian Lapinski',
-    dateline: 'Toronto',
-    category: 'web',
-    tags: ['Vue', 'Dashboard', 'Data Viz'],
+    dateline: 'Drums, PA',
+    category: 'art',
+    tags: ['Community', 'Recognition', 'Web3'],
   },
 ]

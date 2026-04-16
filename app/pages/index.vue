@@ -55,16 +55,16 @@ onMounted(() => {
           <div class="banner__content">
             <p class="kicker mb-4">Exclusive Report</p>
             <h1 ref="heroRef" class="ink-bleed headline-animate">
-              From Amazon Operations to AI Engineering: One Builder's Leap Into the Future
+              The Artist Who Builds: Exploring What It Means to Be Human Through Images and Code
             </h1>
             <div class="banner__deck mt-6 scroll-fade">
               <p class="deck">
-                Lean Six Sigma-certified entrepreneur now ships production AI systems
-                and immersive web experiences from his Toronto studio.
+                Lürzer's Archive 200 Best Digital Artist, creAtIva Vol. 7, Choice Dao Mover and Shaker.
+                From Amazon operations to AI architecture — the story of a builder who sees no line between art and engineering.
               </p>
             </div>
             <div class="banner__meta mt-4 scroll-fade">
-              <span class="dateline">By Brian Lapinski &mdash; Toronto, Canada</span>
+              <span class="dateline">By Brian Lapinski &mdash; Drums, Pennsylvania</span>
             </div>
           </div>
           <figure class="banner__image scroll-scale">
@@ -91,11 +91,11 @@ onMounted(() => {
           <div>
             <ScrollRevealText
               class="lede text-justify"
-              text="Brian Lapinski's path to AI engineering started not in a computer science lab but on the operations floor at Amazon, where he managed programs and led teams as an Area Manager. Lean-certified and Six Sigma trained, he built Quick Dry Floor Care into a successful residential carpet cleaning operation. He now works at US Hydrations."
+              text="Brian Lapinski uses images as a way to explore what it means to be human. His work is rooted in personal exploration, emotion, and connection — not trends or technique for its own sake. Named to Lürzer's Archive 200 Best Digital Artists and selected for creAtIva Magazine Vol. 7, his images have shown at galleries from New York to Barcelona."
             />
             <ScrollRevealText
               class="body-col mt-8 text-justify"
-              text="Now he builds production AI systems and immersive web experiences — multi-agent orchestration, MCP integrations, scroll-driven 3D portfolios with custom GLSL shaders. The operations mindset stayed: every system ships, every process is measurable, every build has a purpose."
+              text="But Lapinski is also a builder. A Villanova-trained Lean Six Sigma Black Belt who managed programs at Amazon, founded a cleaning company, and now supervises operations at US Hydrations. He builds AI agent systems, Three.js experiences, and tools that bridge the gap between art and engineering. 1,138 commits across 19 repositories. 46 registered skills. One cockpit to run it all."
             />
             <p class="continued mt-4 scroll-fade">
               <em>Continued on Page 3</em> &mdash;
@@ -106,24 +106,32 @@ onMounted(() => {
             <h4 class="section-head">At a Glance</h4>
             <dl class="sidebar__facts mt-4">
               <div class="sidebar__fact">
-                <dt>Background</dt>
-                <dd>Amazon, Entrepreneur</dd>
+                <dt>Recognition</dt>
+                <dd>Lürzer's Archive 200 Best</dd>
+              </div>
+              <div class="sidebar__fact">
+                <dt>Publications</dt>
+                <dd>creAtIva Vol. 7, Choice Dao</dd>
               </div>
               <div class="sidebar__fact">
                 <dt>Certifications</dt>
-                <dd>Lean, Six Sigma</dd>
+                <dd>Lean Six Sigma Black Belt (Villanova)</dd>
               </div>
               <div class="sidebar__fact">
-                <dt>Ventures</dt>
-                <dd>Quick Dry Floor Care (Owner)</dd>
+                <dt>Roles</dt>
+                <dd>ImagineArt Ambassador, Caimera Partner</dd>
               </div>
               <div class="sidebar__fact">
-                <dt>Current</dt>
-                <dd>US Hydrations</dd>
+                <dt>Day Job</dt>
+                <dd>Supervisor, US Hydrations</dd>
+              </div>
+              <div class="sidebar__fact">
+                <dt>Location</dt>
+                <dd>Drums, Pennsylvania</dd>
               </div>
               <div class="sidebar__fact">
                 <dt>Availability</dt>
-                <dd class="available">Taking contracts</dd>
+                <dd class="available">Open to work</dd>
               </div>
             </dl>
 

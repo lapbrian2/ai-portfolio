@@ -9,10 +9,19 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
   <div>
     <section class="section">
       <div class="container">
-        <h4 class="section-head">Profile</h4>
+        <h4 class="section-head entrance entrance--1">Profile</h4>
+
+        <!-- Portrait illustration -->
+        <figure class="about-portrait mt-6 entrance--image">
+          <img src="/images/portrait.png" alt="Illustrated portrait — a man at work late into the night" class="img-hover" loading="eager" />
+          <figcaption class="about-portrait__caption">
+            (Staff Illustration) &mdash; Mr. Lapinski at work in his studio, as imagined by our artist.
+          </figcaption>
+        </figure>
+
         <div class="grid grid--sidebar mt-8">
           <div ref="bioRef">
-            <h2 class="ink-bleed">The Artist Who Builds</h2>
+            <h2 class="ink-bleed entrance entrance--3">The Artist Who Builds</h2>
             <div class="bio mt-8">
               <ScrollRevealText
                 class="lede"
@@ -86,6 +95,10 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
               </div>
               <div class="cv__item">
                 <dt>Certification</dt>
+                <dd>SSGI Six Sigma</dd>
+              </div>
+              <div class="cv__item">
+                <dt>Certification</dt>
                 <dd>Anthropic — AI Fluency Framework</dd>
               </div>
             </dl>
@@ -111,6 +124,26 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
 </template>
 
 <style scoped>
+.about-portrait {
+  margin: 0;
+  max-width: 800px;
+}
+
+.about-portrait img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--rule-light);
+}
+
+.about-portrait__caption {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--ink-faded);
+  padding: var(--space-2) 0;
+  font-style: italic;
+  max-width: none;
+}
+
 .bio {
   max-width: 650px;
 }

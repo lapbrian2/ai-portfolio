@@ -10,10 +10,10 @@ const containerRef = ref<HTMLElement | null>(null)
 const words = computed(() => props.text.split(' '))
 
 onMounted(() => {
-  const { $gsap, $ScrollTrigger } = useNuxtApp() as any
+  const { $gsap } = useNuxtApp() as any
   if (!$gsap || !containerRef.value) return
 
-  const wordEls = containerRef.value.querySelectorAll('.scroll-word')
+  const wordEls = containerRef.value.querySelectorAll('.sw')
 
   $gsap.fromTo(wordEls,
     { opacity: 0.15 },
@@ -33,23 +33,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <component :is="tag" ref="containerRef" class="scroll-text" :aria-label="text">
-    <span
-      v-for="(word, i) in words"
-      :key="i"
-      class="scroll-word"
-    >{{ word }} </span>
+  <component :is="tag" ref="containerRef" class="srt" :aria-label="text">
+    <span v-for="(word, i) in words" :key="i" class="sw">{{ i < words.length - 1 ? word + '\u00A0' : word }}</span>
   </component>
 </template>
 
 <style scoped>
-.scroll-text {
+.srt {
   line-height: 1.75;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
 }
 
-.scroll-word {
+.sw {
   opacity: 0.15;
   will-change: opacity;
 }

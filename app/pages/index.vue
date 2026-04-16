@@ -62,12 +62,13 @@ onMounted(() => {
           <div class="banner__content">
             <p class="kicker mb-4">Exclusive Report</p>
             <h1 ref="heroRef" class="ink-bleed headline-animate">
-              The Artist Who Builds: Exploring What It Means to Be Human Through Images and Code
+              The Artist Who Builds
             </h1>
             <div class="banner__deck mt-6 scroll-fade">
               <p class="deck">
-                Lürzer's Archive 200 Best Digital Artist, creAtIva Vol. 7, Choice Dao Mover and Shaker.
-                From Amazon operations to AI architecture — the story of a builder who sees no line between art and engineering.
+                Exploring what it means to be human through images and code.
+                Lürzer's Archive 200 Best. creAtIva Vol. 7. Choice Dao 2026 Mover and Shaker.
+                The story of a builder who sees no line between art and engineering.
               </p>
             </div>
             <div class="banner__meta mt-4 scroll-fade">

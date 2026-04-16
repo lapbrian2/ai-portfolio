@@ -14,7 +14,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: 'Lürzer\'s Archive',
-    headline: 'Scranton-Area Artist Named to Lürzer\'s Archive 200 Best Digital Artists Worldwide',
+    headline: 'Named to Lürzer\'s Archive 200 Best Digital Artists',
     deck: 'One of the most significant marks of recognition in commercial digital art.',
     body: 'Brian Lapinski has been selected for Lürzer\'s Archive 200 Best Digital Artists — a carefully curated survey of the most compelling digital imagery produced globally. The publication, trusted by creatives, commissioners, and art buyers as a benchmark for excellence, covers digital imagery in any form: illustration, compositing, 3D design, AI-assisted visuals, and mixed media. Being selected places Lapinski among the top working digital artists internationally.',
     byline: 'Staff Report',
@@ -25,7 +25,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Choice Dao',
-    headline: 'Named 2026 Mover and Shaker: The Manufacturing Floor to Machine Learning Pipeline',
+    headline: 'From Manufacturing Floors to Machine Learning Pipelines',
     deck: 'Fifteen years on production lines. Now building AI systems that run themselves.',
     body: 'Brian Lapinski spent fifteen years on manufacturing floors — supervising production lines, earning a Lean Six Sigma Black Belt from Villanova, building systems that turned chaos into process. The Choice Dao community recognized that trajectory this year, naming him a 2026 Mover and Shaker. His Style DNA methodology treats AI image generation as constraint satisfaction: isolating the variables that define a visual style, then systematically dialing them until the output matches the intent. It is the operations mindset applied to art.',
     byline: 'Staff Report',
@@ -35,7 +35,7 @@ export const projects: Project[] = [
   },
   {
     title: 'creAtIva Vol. 7',
-    headline: 'Work Selected for creAtIva Magazine With Gallery Shows From New York to Barcelona',
+    headline: 'Four Galleries, Two Continents, One Year',
     deck: 'Four international exhibitions in a single year for the self-taught digital artist.',
     body: 'Selected for creAtIva Magazine Volume 7 — Beauty, Lapinski\'s work has been exhibited at Dream AI Gallery in New Jersey, Fundación Nestlé in Barcelona, FNAC in Asturias, and Art Innovation Gallery in New York. The exhibitions represent a widening international footprint for an artist whose practice began not in art school but on the operations floor at Amazon, where he managed programs and led teams as an Area Manager.',
     byline: 'Arts Desk',

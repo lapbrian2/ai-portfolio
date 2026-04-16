@@ -89,18 +89,15 @@ void main() {
   // Crinkle creates subtle light/shadow on the paper surface
   paperBase += crinkle * 0.018;
 
-  // === FOLD CREASES ===
-  // Horizontal center fold
-  float hFold = foldCrease(uv, vec2(0.0, 0.5), vec2(1.0, 0.5), 0.003);
-  paperBase -= hFold * 0.06;
+  // === FOLD CREASES — subtle, not obvious ===
+  float hFold = foldCrease(uv, vec2(0.0, 0.5), vec2(1.0, 0.5), 0.001);
+  paperBase -= hFold * 0.02;
 
-  // Vertical center fold
-  float vFold = foldCrease(uv, vec2(0.5, 0.0), vec2(0.5, 1.0), 0.002);
-  paperBase -= vFold * 0.04;
+  float vFold = foldCrease(uv, vec2(0.5, 0.0), vec2(0.5, 1.0), 0.001);
+  paperBase -= vFold * 0.015;
 
-  // Secondary horizontal fold (quarter)
-  float hFold2 = foldCrease(uv, vec2(0.0, 0.25), vec2(1.0, 0.25), 0.0015);
-  paperBase -= hFold2 * 0.025;
+  float hFold2 = foldCrease(uv, vec2(0.0, 0.25), vec2(1.0, 0.25), 0.0008);
+  paperBase -= hFold2 * 0.01;
 
   // === EDGE DARKENING ===
   // Edges of old paper get darker/foxed

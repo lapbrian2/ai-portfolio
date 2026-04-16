@@ -3,53 +3,49 @@
 /* ======================================
    CSS SCROLL-DRIVEN REVEALS
    Compositor thread — zero JS, zero cost
+   Trigger when elements enter bottom 20% of viewport
    ====================================== */
 
-/* Basic fade-up reveal on scroll entry */
 @supports (animation-timeline: view()) {
   .scroll-reveal {
     animation: scrollRevealUp 1s var(--ease-out) both;
     animation-timeline: view();
-    animation-range: entry 0% entry 40%;
+    animation-range: entry 0% entry 60%;
   }
 
   .scroll-reveal-slow {
     animation: scrollRevealUp 1.2s var(--ease-out) both;
     animation-timeline: view();
-    animation-range: entry 0% entry 50%;
+    animation-range: entry 0% entry 70%;
   }
 
-  /* Fade only — no translate */
   .scroll-fade {
     animation: scrollFade 0.8s var(--ease-out) both;
     animation-timeline: view();
-    animation-range: entry 0% entry 35%;
+    animation-range: entry 0% entry 50%;
   }
 
-  /* Slide from left */
   .scroll-reveal-left {
     animation: scrollRevealLeft 1s var(--ease-out) both;
     animation-timeline: view();
-    animation-range: entry 0% entry 40%;
+    animation-range: entry 0% entry 60%;
   }
 
-  /* Scale up */
   .scroll-scale {
     animation: scrollScale 1s var(--ease-out) both;
     animation-timeline: view();
-    animation-range: entry 0% entry 45%;
+    animation-range: entry 0% entry 55%;
   }
 
-  /* Rule line draws in */
   .scroll-rule {
     animation: scrollRule 0.8s var(--ease-out) both;
     animation-timeline: view();
-    animation-range: entry 0% entry 30%;
+    animation-range: entry 10% entry 50%;
   }
 }
 
 @keyframes scrollRevealUp {
-  from { opacity: 0; transform: translateY(40px); }
+  from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -59,12 +55,12 @@
 }
 
 @keyframes scrollRevealLeft {
-  from { opacity: 0; transform: translateX(-30px); }
+  from { opacity: 0; transform: translateX(-20px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes scrollScale {
-  from { opacity: 0; transform: scale(0.95); }
+  from { opacity: 0; transform: scale(0.97); }
   to   { opacity: 1; transform: scale(1); }
 }
 
@@ -73,19 +69,19 @@
   to   { transform: scaleX(1); transform-origin: left; }
 }
 
-/* Staggered children — each child delays based on nth-child */
+/* Staggered children */
 @supports (animation-timeline: view()) {
   .scroll-stagger > * {
     animation: scrollRevealUp 0.8s var(--ease-out) both;
     animation-timeline: view();
-    animation-range: entry 0% entry 45%;
+    animation-range: entry 0% entry 60%;
   }
   .scroll-stagger > *:nth-child(1) { animation-delay: 0ms; }
-  .scroll-stagger > *:nth-child(2) { animation-delay: 80ms; }
-  .scroll-stagger > *:nth-child(3) { animation-delay: 160ms; }
-  .scroll-stagger > *:nth-child(4) { animation-delay: 240ms; }
-  .scroll-stagger > *:nth-child(5) { animation-delay: 320ms; }
-  .scroll-stagger > *:nth-child(6) { animation-delay: 400ms; }
+  .scroll-stagger > *:nth-child(2) { animation-delay: 60ms; }
+  .scroll-stagger > *:nth-child(3) { animation-delay: 120ms; }
+  .scroll-stagger > *:nth-child(4) { animation-delay: 180ms; }
+  .scroll-stagger > *:nth-child(5) { animation-delay: 240ms; }
+  .scroll-stagger > *:nth-child(6) { animation-delay: 300ms; }
 }
 
 /* ======================================
@@ -113,15 +109,14 @@
 }
 
 @keyframes parallaxText {
-  from { transform: translateY(20px); }
-  to   { transform: translateY(-20px); }
+  from { transform: translateY(15px); }
+  to   { transform: translateY(-15px); }
 }
 
 /* ======================================
-   TEXT SPLIT REVEALS — CSS variable stagger
+   TEXT SPLIT REVEALS
    ====================================== */
 
-/* Masked char reveal — chars slide up from below clip */
 .split-text--reveal .split-word {
   overflow: hidden;
 }
@@ -136,14 +131,13 @@
   to { transform: translateY(0); }
 }
 
-/* Scroll-triggered char reveal */
 @supports (animation-timeline: view()) {
   .split-text--scroll-reveal .split-char {
     opacity: 0;
     transform: translateY(105%);
     animation: charScrollReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-timeline: view();
-    animation-range: entry 0% entry 40%;
+    animation-range: entry 0% entry 50%;
     animation-delay: calc(var(--char-index, 0) * 0.02s);
   }
 }
@@ -152,7 +146,6 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Typewriter effect */
 .split-text--typewriter .split-char {
   opacity: 0;
   animation: typeChar 0.01s steps(1) forwards;
@@ -164,7 +157,7 @@
 }
 
 /* ======================================
-   SECTION EXIT — fade out as you scroll past
+   SECTION EXIT
    ====================================== */
 
 @supports (animation-timeline: view()) {
@@ -177,35 +170,13 @@
 
 @keyframes scrollExit {
   from { opacity: 1; transform: scale(1); }
-  to   { opacity: 0; transform: scale(0.97); }
-}
-
-/* ======================================
-   ENTRY ANIMATIONS — @starting-style
-   ====================================== */
-
-/* Mobile menu overlay */
-@supports (transition-behavior: allow-discrete) {
-  .overlay-enter {
-    opacity: 1;
-    display: flex;
-    transition: opacity 0.3s var(--ease-out), display 0.3s;
-    transition-behavior: allow-discrete;
-  }
-
-  @starting-style {
-    .overlay-enter {
-      opacity: 0;
-    }
-  }
+  to   { opacity: 0.3; transform: scale(0.98); }
 }
 
 /* ======================================
    HEADLINE ENTRANCE — GSAP-powered
-   Used for the main masthead headline only
    ====================================== */
 
-/* Container for GSAP-animated chars */
 .headline-animate {
   overflow: hidden;
 }
@@ -217,7 +188,7 @@
 }
 
 /* ======================================
-   PROGRESS BAR — scroll position indicator
+   PROGRESS BAR
    ====================================== */
 
 @supports (animation-timeline: scroll()) {
@@ -241,7 +212,7 @@
 }
 
 /* ======================================
-   REDUCED MOTION — respect user preference
+   REDUCED MOTION
    ====================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -262,14 +233,13 @@
   }
 }
 
-/* Firefox fallback — GSAP handles these */
+/* Firefox fallback */
 @supports not (animation-timeline: view()) {
   .scroll-reveal,
   .scroll-reveal-slow,
   .scroll-fade,
   .scroll-reveal-left,
   .scroll-scale {
-    /* GSAP composable will handle animation */
     opacity: 1;
     transform: none;
   }

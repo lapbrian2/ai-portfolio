@@ -154,6 +154,25 @@ onMounted(() => {
 
     <div class="container"><hr class="rule scroll-rule" /></div>
 
+    <!-- Illustration break -->
+    <section class="section" style="padding: var(--space-8) 0;">
+      <div class="container">
+        <figure class="illustration scroll-scale">
+          <img
+            src="/images/retro-sci-fi.png"
+            alt="Retro sci-fi illustration of an engineer working on mechanical arms"
+            class="halftone-img"
+            loading="lazy"
+          />
+          <figcaption class="illustration__caption">
+            <span class="dateline">Illustration</span> &mdash; The builder at work. Oil on canvas, artist unknown, c. 2026.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="container"><hr class="rule scroll-rule" /></div>
+
     <!-- Featured stories -->
     <section class="section">
       <div class="container">
@@ -404,6 +423,27 @@ onMounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--ink);
+}
+
+/* Illustration break */
+.illustration {
+  margin: 0;
+  max-width: 800px;
+}
+
+.illustration img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--rule-light);
+}
+
+.illustration__caption {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  color: var(--ink-faded);
+  padding: var(--space-2) 0;
+  font-style: italic;
+  border-bottom: 1px solid var(--rule-light);
 }
 
 /* Stories */

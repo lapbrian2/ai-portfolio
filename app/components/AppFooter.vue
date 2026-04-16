@@ -5,7 +5,15 @@ const year = new Date().getFullYear()
 <template>
   <footer class="footer">
     <div class="container">
-      <hr class="rule rule--thick" />
+      <!-- Printing press illustration -->
+      <figure class="footer__press scroll-scale">
+        <img src="/images/printing-press.png" alt="Pressman watching the letterpress run" class="img-hover" loading="lazy" />
+        <figcaption class="footer__press-caption">
+          (Staff Illustration) &mdash; The presses run late into the evening at The Lapinski Record.
+        </figcaption>
+      </figure>
+
+      <hr class="rule rule--thick mt-8" />
 
       <div class="footer__grid mt-8">
         <div>
@@ -37,11 +45,11 @@ const year = new Date().getFullYear()
         </div>
       </div>
 
-      <hr class="rule mt-12" />
+      <hr class="rule mt-8" />
 
       <div class="footer__bottom mt-4">
-        <span class="dateline">&copy; {{ year }} Brian Lapinski. All rights reserved.</span>
-        <span class="dateline">Toronto, Canada</span>
+        <span class="dateline">&copy; {{ year }} The Lapinski Record. All rights reserved.</span>
+        <span class="dateline">Drums, Pennsylvania</span>
       </div>
     </div>
   </footer>
@@ -50,6 +58,26 @@ const year = new Date().getFullYear()
 <style scoped>
 .footer {
   padding: var(--space-16) 0 var(--space-8);
+}
+
+.footer__press {
+  margin: 0;
+  max-width: 700px;
+}
+
+.footer__press img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--rule-light);
+}
+
+.footer__press-caption {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--ink-faded);
+  padding: var(--space-2) 0;
+  font-style: italic;
+  max-width: none;
 }
 
 .footer__grid {
@@ -64,7 +92,7 @@ const year = new Date().getFullYear()
 }
 
 .footer__text {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   max-width: 35ch;
 }
 
@@ -75,7 +103,7 @@ const year = new Date().getFullYear()
 }
 
 .footer__nav a {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: var(--ink-faded);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out);

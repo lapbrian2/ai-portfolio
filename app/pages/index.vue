@@ -169,7 +169,7 @@ onMounted(() => {
 
             <EditorNote
               type="dispatch"
-              text="Mr. Lapinski spent fifteen years on manufacturing floors before turning to art and technology. He earned a Lean Six Sigma Black Belt from Villanova University and managed programs at Amazon as an Area Manager. He founded Quick Dry Floor Care, a residential carpet cleaning operation, and now serves as Supervisor at US Hydrations."
+              text="Mr. Lapinski came to art and technology by way of Amazon, where he managed programs and led teams as an Area Manager. A Villanova-trained Lean Six Sigma Black Belt, he founded Quick Dry Floor Care before taking a supervisory post at US Hydrations. The operations discipline — measure, optimize, ship — carried into everything that followed."
             />
 
             <ScrollRevealText

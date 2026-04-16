@@ -78,7 +78,7 @@ export const projects: Project[] = [
     dateline: 'Drums, PA',
     category: 'creative',
     url: 'https://ml-systems-universe.vercel.app/',
-    image: '/images/helix.png',
+    image: '/images/ml-brain.png',
     tags: ['Three.js', 'GSAP', 'Data Visualization'],
   },
 ]

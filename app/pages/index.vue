@@ -99,8 +99,7 @@ onMounted(() => {
           { label: 'The Profile', id: 'profile' },
           { label: 'The Pictures', id: 'pictures' },
           { label: 'Featured Stories', id: 'stories' },
-          { label: 'Classifieds', id: 'classifieds' },
-          { label: 'Services Directory', id: 'services' },
+          { label: 'The Practice', id: 'practice' },
         ]" />
       </div>
     </section>
@@ -142,7 +141,7 @@ onMounted(() => {
             />
 
             <LateBreaking
-              text="As of press time, Lapinski has logged 1,138 commits across 19 repositories, registered 46 autonomous skills, and built a command center that controls his entire operation from a single HTML file. He is currently accepting contracts."
+              text="As of press time, Lapinski has logged 1,138 commits across 19 repositories, registered 46 autonomous skills, and built a command center that controls his entire operation from a single HTML file."
             />
 
             <p class="continued mt-4 scroll-fade">
@@ -177,24 +176,7 @@ onMounted(() => {
                 <dt>Location</dt>
                 <dd>Drums, Pennsylvania</dd>
               </div>
-              <div class="sidebar__fact">
-                <dt>Availability</dt>
-                <dd class="available">Open to work</dd>
-              </div>
             </dl>
-
-            <WeatherBox class="mt-8 scroll-scale" />
-
-            <div class="sidebar__ad mt-8 scroll-scale">
-              <p class="ad-label">ADVERTISEMENT</p>
-              <div class="ad-box">
-                <p class="ad-text">
-                  Need an AI engineer?<br>
-                  <strong>Enquire today.</strong>
-                </p>
-                <NuxtLink to="/contact" class="ad-link" data-cursor>Contact &rarr;</NuxtLink>
-              </div>
-            </div>
           </aside>
         </div>
       </div>
@@ -203,7 +185,7 @@ onMounted(() => {
     <OrnamentalRule />
 
     <!-- Illustration strip — multiple pulp images -->
-    <section class="section" style="padding: var(--space-8) 0;">
+    <section id="pictures" class="section" style="padding: var(--space-8) 0;">
       <div class="container">
         <div class="illustration-strip scroll-stagger">
           <figure class="illustration">
@@ -305,46 +287,32 @@ onMounted(() => {
       </div>
     </section>
 
-    <!-- Classified Ads — horizontal scroll -->
-    <div id="classifieds">
-      <ClassifiedAds />
-    </div>
-
     <PullQuote
       quote="Every system ships. Every process is measurable. Every build has a purpose."
       attribution="Brian Lapinski, on his approach to work"
     />
 
-    <!-- Services columns -->
-    <section id="services" class="section scroll-exit">
+    <OrnamentalRule />
+
+    <!-- What I Do — not selling, just explaining -->
+    <section id="practice" class="section scroll-exit">
       <div class="container">
-        <h4 class="section-head scroll-reveal-left">Services Directory</h4>
+        <h4 class="section-head scroll-reveal-left">The Practice</h4>
         <div class="grid grid--2 mt-8">
           <div class="scroll-reveal">
-            <h3 class="ink-bleed parallax-text">AI Engineering</h3>
-            <p class="body-col mt-4">
-              Multi-agent systems, MCP server integrations, RAG pipelines, and full-stack AI applications.
-              Production AI built with enterprise rigor — not hackathon demos. Agents that orchestrate,
-              tools that connect, pipelines that scale.
-            </p>
-            <p class="body-col mt-4">
-              Starting at $175/hr for contract work. Project-based pricing available for defined scopes.
-            </p>
+            <h3 class="ink-bleed parallax-text">Art & Images</h3>
+            <ScrollRevealText
+              class="body-col mt-4"
+              text="Digital art rooted in personal exploration. Midjourney, ImagineArt, and custom workflows through a systematic Style DNA methodology — treating image generation as reproducible craft rather than random experimentation. Through creating and teaching, he sees image-making as a form of self-discovery and shared understanding."
+            />
           </div>
           <div class="col-ruled scroll-reveal-slow">
-            <h3 class="ink-bleed parallax-text">Web Development</h3>
-            <p class="body-col mt-4">
-              Custom Nuxt and Vue sites, immersive Three.js experiences, scroll-driven animations,
-              and design systems. Small business packages starting at $2,500 including Google Business
-              setup and local SEO.
-            </p>
-            <p class="body-col mt-4">
-              Performance-first architecture. Every site scores 90+ on Lighthouse.
-            </p>
+            <h3 class="ink-bleed parallax-text">Code & Systems</h3>
+            <ScrollRevealText
+              class="body-col mt-4"
+              text="Multi-agent AI orchestration, MCP server integrations, RAG pipelines, and immersive Three.js web experiences. Custom GLSL shaders, GSAP scroll-driven animations, and design systems built with Nuxt and Vue. Every project ships to production. The Lean Six Sigma discipline carries through — eliminate waste, measure everything, iterate until it works."
+            />
           </div>
-        </div>
-        <div class="mt-8 text-center scroll-reveal">
-          <NuxtLink to="/services" class="btn" data-cursor>Full Services & Process &rarr;</NuxtLink>
         </div>
       </div>
     </section>

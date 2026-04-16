@@ -21,7 +21,7 @@ export const projects: Project[] = [
     byline: 'By Our Special Correspondent',
     dateline: 'DRUMS, PA.',
     category: 'art',
-    image: '/images/hero-brain.png',
+    image: '/images/hero-brain.webp',
     tags: ['Digital Art', 'Recognition'],
   },
   {
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     byline: 'By a Staff Reporter',
     dateline: 'DRUMS, PA.',
     category: 'art',
-    image: '/images/factory-floor.png',
+    image: '/images/factory-floor.webp',
     tags: ['Community', 'Style DNA'],
   },
   {
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     byline: '(Special to The Lapinski Record)',
     dateline: 'INTERNATIONAL',
     category: 'art',
-    image: '/images/pulp-vintage.png',
+    image: '/images/pulp-vintage.webp',
     tags: ['Exhibition', 'Gallery'],
   },
   {
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     byline: 'By Our Technical Correspondent',
     dateline: 'DRUMS, PA.',
     category: 'tech',
-    image: '/images/retro-sci-fi.png',
+    image: '/images/retro-sci-fi.webp',
     tags: ['Three.js', 'Claude Code'],
   },
   {
@@ -68,7 +68,7 @@ export const projects: Project[] = [
     byline: 'By a Staff Reporter',
     dateline: 'DRUMS, PA.',
     category: 'creative',
-    image: '/images/pulp-sci-fi-2.png',
+    image: '/images/pulp-sci-fi-2.webp',
     tags: ['Three.js', 'Easter Eggs'],
   },
   {
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     byline: 'By Our Science Correspondent',
     dateline: 'DRUMS, PA.',
     category: 'creative',
-    image: '/images/ml-brain.png',
+    image: '/images/ml-brain.webp',
     tags: ['Three.js', 'Data Viz'],
   },
 ]

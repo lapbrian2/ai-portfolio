@@ -20,7 +20,7 @@ useScrollVelocity('.ink-bleed')
     <section style="padding: var(--space-4) 0;">
       <div class="container">
         <figure class="page-illustration scroll-scale">
-          <img src="/images/pulp-sci-fi-3.png" alt="Vintage pulp illustration — NEW!" class="halftone-img" loading="lazy" />
+          <img src="/images/pulp-sci-fi-3.webp" alt="Vintage pulp illustration — NEW!" class="halftone-img" loading="lazy" />
           <figcaption class="page-illustration__caption">
             <span class="dateline">Advertisement</span> &mdash; New services available. Enquire within.
           </figcaption>
@@ -127,7 +127,7 @@ useScrollVelocity('.ink-bleed')
     <section style="padding: var(--space-6) 0;">
       <div class="container">
         <figure class="page-illustration scroll-scale">
-          <img src="/images/practice-2.png" alt="The correspondent at work" class="img-hover" loading="lazy" />
+          <img src="/images/practice-2.webp" alt="The correspondent at work" class="img-hover" loading="lazy" />
           <figcaption class="page-illustration__caption">
             (Staff Illustration) &mdash; Your correspondent, hard at work in the archives.
           </figcaption>

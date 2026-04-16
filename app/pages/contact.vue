@@ -8,7 +8,7 @@ useHead({ title: 'Letters to the Editor — The Lapinski Record' })
     <section style="padding: var(--space-8) 0 0;">
       <div class="container">
         <figure class="mailroom entrance--image">
-          <img src="/images/practice-1.png" alt="The mail room — letters piled high" class="img-hover" loading="eager" />
+          <img src="/images/practice-1.webp" alt="The mail room — letters piled high" class="img-hover" loading="eager" />
           <figcaption class="mailroom__caption">
             (Staff Illustration) &mdash; The letters desk at The Lapinski Record. Your correspondence is sorted and answered within 24 hours.
           </figcaption>

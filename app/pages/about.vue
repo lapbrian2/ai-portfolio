@@ -13,7 +13,7 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
 
         <!-- Portrait illustration -->
         <figure class="about-portrait mt-6 entrance--image">
-          <img src="/images/portrait.png" alt="Illustrated portrait — a man at work late into the night" class="img-hover" loading="eager" />
+          <img src="/images/portrait.webp" alt="Illustrated portrait — a man at work late into the night" class="img-hover" loading="eager" />
           <figcaption class="about-portrait__caption">
             (Staff Illustration) &mdash; Mr. Lapinski at work in his studio, as imagined by our artist.
           </figcaption>

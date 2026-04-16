@@ -145,7 +145,7 @@ onMounted(() => {
           </div>
           <figure class="banner__image entrance--image">
             <img
-              src="/images/hero-brain.png"
+              src="/images/hero-brain.webp"
               alt="Pulp sci-fi illustration of a mechanical brain"
               class="img-hover"
               loading="eager"
@@ -339,7 +339,7 @@ onMounted(() => {
     <section style="padding: var(--space-6) 0;">
       <div class="container">
         <figure class="inline-ad scroll-scale">
-          <img src="/images/pulp-new.png" alt="Vintage advertisement illustration" class="img-hover" loading="lazy" />
+          <img src="/images/pulp-new.webp" alt="Vintage advertisement illustration" class="img-hover" loading="lazy" />
           <figcaption class="inline-ad__caption">
             <span class="dateline">Advertisement</span> &mdash; Have you seen these innovations? The future is now!
           </figcaption>

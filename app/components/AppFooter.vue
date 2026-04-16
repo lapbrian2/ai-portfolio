@@ -7,7 +7,7 @@ const year = new Date().getFullYear()
     <div class="container">
       <!-- Printing press illustration -->
       <figure class="footer__press scroll-scale">
-        <img src="/images/printing-press.png" alt="Pressman watching the letterpress run" class="img-hover" loading="lazy" />
+        <img src="/images/printing-press.webp" alt="Pressman watching the letterpress run" class="img-hover" loading="lazy" />
         <figcaption class="footer__press-caption">
           (Staff Illustration) &mdash; The presses run late into the evening at The Lapinski Record.
         </figcaption>

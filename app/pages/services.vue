@@ -39,7 +39,7 @@ useScrollVelocity('.ink-bleed')
             <h3 class="ink-bleed mt-4">Images That Speak Without Words</h3>
             <p class="body-col mt-4">
               AI-generated art rooted in personal exploration, emotion, and connection.
-              Midjourney, ImagineArt, and custom workflows through a systematic Style DNA
+              Midjourney and custom workflows through a systematic Style DNA
               methodology — treating image generation as reproducible craft.
             </p>
             <ul class="service-list mt-6">
@@ -59,8 +59,6 @@ useScrollVelocity('.ink-bleed')
                 <li>Lean Six Sigma Black Belt (Villanova)</li>
                 <li>ASQ Lean Certified</li>
                 <li>SSGI Six Sigma</li>
-                <li>ImagineArt Ambassador</li>
-                <li>Caimera Creative Partner</li>
               </ul>
             </div>
           </aside>

@@ -232,10 +232,6 @@ onMounted(() => {
                 <dd>Lean Six Sigma Black Belt (Villanova), ASQ Lean, SSGI Six Sigma</dd>
               </div>
               <div class="sidebar__fact">
-                <dt>Roles</dt>
-                <dd>ImagineArt Ambassador, Caimera Partner</dd>
-              </div>
-              <div class="sidebar__fact">
                 <dt>Day Job</dt>
                 <dd>US Hydrations</dd>
               </div>
@@ -363,7 +359,7 @@ onMounted(() => {
             <h3 class="ink-bleed parallax-text">Art & Images</h3>
             <ScrollRevealText
               class="body-col mt-4"
-              text="Digital art rooted in personal exploration. Midjourney, ImagineArt, and custom workflows through a systematic Style DNA methodology — treating image generation as reproducible craft rather than random experimentation. Through creating and teaching, he sees image-making as a form of self-discovery and shared understanding."
+              text="Digital art rooted in personal exploration. Midjourney and custom workflows through a systematic Style DNA methodology — treating image generation as reproducible craft rather than random experimentation. Through creating and teaching, he sees image-making as a form of self-discovery and shared understanding."
             />
           </div>
           <div class="col-ruled scroll-reveal-slow">

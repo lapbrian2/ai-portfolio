@@ -37,7 +37,7 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
               />
               <ScrollRevealText
                 class="body-col mt-6"
-                text="Through creating and teaching, he sees image-making as a form of self-discovery and shared understanding. As an AI Architect at The House of Curiosity and Ambassador for ImagineArt, he brings a systematic approach to AI art — treating image generation as reproducible craft rather than random experimentation."
+                text="Through creating and teaching, he sees image-making as a form of self-discovery and shared understanding. He brings a systematic approach to everything he builds — treating each project as reproducible craft rather than random experimentation."
               />
             </div>
             <NuxtLink to="/contact" class="link-arrow mt-8" data-cursor>Get in touch</NuxtLink>
@@ -60,18 +60,6 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
               <div class="cv__item">
                 <dt>Certification</dt>
                 <dd>L5 Diamond Vibe Coder — Lovable</dd>
-              </div>
-              <div class="cv__item">
-                <dt>Ambassador</dt>
-                <dd>ImagineArt — Creative Partner</dd>
-              </div>
-              <div class="cv__item">
-                <dt>Partner</dt>
-                <dd>Caimera — Creative Partner</dd>
-              </div>
-              <div class="cv__item">
-                <dt>Role</dt>
-                <dd>AI Architect — The House of Curiosity</dd>
               </div>
               <div class="cv__item">
                 <dt>Current</dt>

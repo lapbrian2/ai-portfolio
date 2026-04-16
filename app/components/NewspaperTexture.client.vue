@@ -47,6 +47,22 @@
 
     <!-- Coffee ring stain -->
     <div class="texture-coffee" />
+
+    <!-- Ink spots — scattered press splatter -->
+    <div class="ink-spot" style="top: 12%; left: 8%; width: 6px; height: 6px;" />
+    <div class="ink-spot" style="top: 18%; left: 72%; width: 4px; height: 3px; transform: rotate(25deg);" />
+    <div class="ink-spot" style="top: 31%; left: 15%; width: 3px; height: 3px;" />
+    <div class="ink-spot" style="top: 34%; left: 85%; width: 8px; height: 5px; transform: rotate(-15deg);" />
+    <div class="ink-spot" style="top: 45%; left: 5%; width: 4px; height: 4px;" />
+    <div class="ink-spot" style="top: 52%; left: 92%; width: 3px; height: 2px;" />
+    <div class="ink-spot" style="top: 58%; left: 28%; width: 5px; height: 4px; transform: rotate(40deg);" />
+    <div class="ink-spot" style="top: 67%; left: 78%; width: 3px; height: 3px;" />
+    <div class="ink-spot" style="top: 73%; left: 12%; width: 7px; height: 4px; transform: rotate(-30deg);" />
+    <div class="ink-spot" style="top: 81%; left: 65%; width: 4px; height: 3px; transform: rotate(10deg);" />
+    <div class="ink-spot" style="top: 88%; left: 40%; width: 5px; height: 5px;" />
+    <div class="ink-spot" style="top: 22%; left: 50%; width: 2px; height: 2px;" />
+    <div class="ink-spot" style="top: 41%; left: 60%; width: 3px; height: 2px; transform: rotate(60deg);" />
+    <div class="ink-spot" style="top: 95%; left: 25%; width: 6px; height: 3px; transform: rotate(-20deg);" />
   </div>
 </template>
 
@@ -124,6 +140,13 @@
 }
 
 /* Coffee stain */
+/* Ink spots — press splatter */
+.ink-spot {
+  position: absolute;
+  background: rgba(21, 18, 16, 0.15);
+  border-radius: 50%;
+}
+
 .texture-coffee {
   position: absolute;
   top: 28%;

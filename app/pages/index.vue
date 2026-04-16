@@ -33,7 +33,7 @@ onMounted(() => {
     )
     .join('')
 
-  heroRef.value.style.overflow = 'hidden'
+  heroRef.value.style.overflow = 'visible'
 
   const chars = heroRef.value.querySelectorAll('.char')
 

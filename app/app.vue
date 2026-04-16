@@ -3,5 +3,4 @@
     <NuxtPage />
   </NuxtLayout>
   <Lightbox />
-  <CustomCursor />
 </template>

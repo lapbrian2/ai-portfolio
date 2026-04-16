@@ -62,12 +62,7 @@ html {
   text-rendering: optimizeLegibility;
   background-color: var(--paper-edge);
   color: var(--ink);
-  cursor: none;
-}
-
-@media (hover: none), (pointer: coarse) {
-  html { cursor: auto; }
-  a, button, [data-cursor] { cursor: auto !important; }
+  cursor: auto;
 }
 
 body {

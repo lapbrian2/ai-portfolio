@@ -36,7 +36,9 @@ useScrollVelocity('.ink-bleed')
           <div class="article-full__layout" :class="{ 'article-full__layout--reverse': i % 2 !== 0 }">
             <div class="article-full__text">
               <span class="kicker">{{ project.category === 'art' ? 'Art' : project.category === 'tech' ? 'Technology' : 'Creative' }}</span>
-              <h2 class="article-full__headline ink-bleed mt-2 scroll-reveal">{{ project.headline }}</h2>
+              <NuxtLink :to="`/work/${project.slug}`" class="article-full__link" data-cursor data-cursor-text="Read">
+                <h2 class="article-full__headline ink-bleed mt-2 scroll-reveal">{{ project.headline }}</h2>
+              </NuxtLink>
               <p class="article-full__deck mt-2">{{ project.deck }}</p>
             </div>
             <figure v-if="project.image" class="article-full__fig scroll-scale">
@@ -112,9 +114,19 @@ useScrollVelocity('.ink-bleed')
   }
 }
 
+.article-full__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.article-full__link:hover .article-full__headline {
+  color: var(--red-bright);
+}
+
 .article-full__headline {
   font-size: clamp(1.5rem, 3.5vw, 2.5rem);
   line-height: 1.1;
+  transition: color var(--duration-base) var(--ease-out);
 }
 
 .article-full__deck {

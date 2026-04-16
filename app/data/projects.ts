@@ -1,4 +1,5 @@
 export interface Project {
+  slug: string
   title: string
   headline: string
   deck: string
@@ -11,8 +12,13 @@ export interface Project {
   tags: string[]
 }
 
+export function getProjectBySlug(slug: string): Project | undefined {
+  return projects.find(p => p.slug === slug)
+}
+
 export const projects: Project[] = [
   {
+    slug: 'lurzers-archive',
     title: 'Lürzer\'s Archive',
     headline: 'LOCAL MAN NABS SPOT AMONG WORLD\'S 200 BEST DIGITAL ARTISTS',
     deck: 'Drums, Pa. resident selected for Lürzer\'s Archive — the publication trusted by art directors from Madison Avenue to Milan.',
@@ -25,6 +31,7 @@ export const projects: Project[] = [
     tags: ['Digital Art', 'Recognition'],
   },
   {
+    slug: 'choice-dao',
     title: 'Choice Dao',
     headline: 'FACTORY FLOOR VETERAN EYES NEW FRONTIER; NAMED MOVER AND SHAKER',
     deck: 'Choice Dao community recognizes Lapinski for bridging operations discipline with digital artistry.',
@@ -37,6 +44,7 @@ export const projects: Project[] = [
     tags: ['Community', 'Style DNA'],
   },
   {
+    slug: 'creativa-vol-7',
     title: 'creAtIva Vol. 7',
     headline: 'FOUR GALLERIES, TWO CONTINENTS, ONE YEAR: AREA ARTIST GOES INTERNATIONAL',
     deck: 'Exhibitions from New Jersey to Barcelona mark a widening footprint for the Pocono region\'s most prolific digital image-maker.',
@@ -48,6 +56,7 @@ export const projects: Project[] = [
     tags: ['Exhibition', 'Gallery'],
   },
   {
+    slug: 'the-dash',
     title: 'The Dash',
     headline: 'ONE FILE, 19 REPOS, 1,138 COMMITS: INSIDE THE COCKPIT',
     deck: 'No framework. No build step. Vanilla JavaScript, Three.js, and an Express server. Your correspondent reports from the command center.',
@@ -60,6 +69,7 @@ export const projects: Project[] = [
     tags: ['Three.js', 'Claude Code'],
   },
   {
+    slug: 'art-portfolio',
     title: 'Art Portfolio',
     headline: 'PORTFOLIO BARES HIDDEN MODES; EASTER EGGS DISCOVERED BY SHARP-EYED VISITORS',
     deck: 'Konami code triggers party mode. UV blacklight reveals hidden layers. Over 3,700 lines of code in a single file. This reporter investigates.',
@@ -72,6 +82,7 @@ export const projects: Project[] = [
     tags: ['Three.js', 'Easter Eggs'],
   },
   {
+    slug: 'ml-systems-universe',
     title: 'ML Systems Universe',
     headline: 'VAST 3-D MAP CHARTS MACHINE LEARNING LANDSCAPE; VISITORS LEFT AGOG',
     deck: 'Scroll-driven camera choreography guides the viewer through a galaxy of neural architectures. Three.js renders each system as a point in space.',

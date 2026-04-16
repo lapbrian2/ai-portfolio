@@ -24,10 +24,12 @@ function onKeydown(e: KeyboardEvent) {
 onMounted(() => {
   document.addEventListener('keydown', onKeydown)
 
-  // Listen for clicks on any .img-hover image
+  // Listen for clicks on ANY image inside main content
   document.addEventListener('click', (e) => {
-    const img = (e.target as HTMLElement).closest('.img-hover') as HTMLImageElement
+    const img = (e.target as HTMLElement).closest('main img, .footer__press img') as HTMLImageElement
     if (!img) return
+    // Skip tiny images (icons, decorative)
+    if (img.naturalWidth < 200) return
     const caption = img.closest('figure')?.querySelector('figcaption')?.textContent || ''
     open(img.src, img.alt, caption)
   })

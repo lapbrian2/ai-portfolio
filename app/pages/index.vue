@@ -88,18 +88,15 @@ onMounted(() => {
     <section class="section scroll-exit">
       <div class="container">
         <div class="grid grid--sidebar">
-          <div class="scroll-reveal">
-            <p class="lede drop-cap text-justify">
-              Brian Lapinski's path to AI engineering started not in a computer science lab but on
-              the operations floor at Amazon, where he managed programs and led teams as an Area Manager.
-              Lean-certified and Six Sigma trained, he built Quick Dry Floor Care into a successful
-              residential carpet cleaning operation. He now works at US Hydrations.
-            </p>
-            <p class="body-col mt-6 text-justify scroll-reveal-slow">
-              Now he builds production AI systems and immersive web experiences — multi-agent orchestration,
-              MCP integrations, scroll-driven 3D portfolios with custom GLSL shaders. The operations
-              mindset stayed: every system ships, every process is measurable, every build has a purpose.
-            </p>
+          <div>
+            <ScrollRevealText
+              class="lede text-justify"
+              text="Brian Lapinski's path to AI engineering started not in a computer science lab but on the operations floor at Amazon, where he managed programs and led teams as an Area Manager. Lean-certified and Six Sigma trained, he built Quick Dry Floor Care into a successful residential carpet cleaning operation. He now works at US Hydrations."
+            />
+            <ScrollRevealText
+              class="body-col mt-8 text-justify"
+              text="Now he builds production AI systems and immersive web experiences — multi-agent orchestration, MCP integrations, scroll-driven 3D portfolios with custom GLSL shaders. The operations mindset stayed: every system ships, every process is measurable, every build has a purpose."
+            />
             <p class="continued mt-4 scroll-fade">
               <em>Continued on Page 3</em> &mdash;
               <NuxtLink to="/about" class="link-arrow" data-cursor>Read full profile</NuxtLink>

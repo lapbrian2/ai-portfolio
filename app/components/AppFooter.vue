@@ -33,8 +33,7 @@ const year = new Date().getFullYear()
           <nav class="footer__nav mt-4">
             <a href="https://github.com/lapbrian2" target="_blank" rel="noopener noreferrer" data-cursor>GitHub</a>
             <a href="https://www.linkedin.com/in/brian-lapinski-a65238352" target="_blank" rel="noopener noreferrer" data-cursor>LinkedIn</a>
-            <a href="#" data-cursor>Substack</a>
-            <a href="#" data-cursor>Gumroad</a>
+            <a href="https://www.instagram.com/brian_lapinski1/" target="_blank" rel="noopener noreferrer" data-cursor>Instagram</a>
           </nav>
         </div>
       </div>

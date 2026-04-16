@@ -1,4 +1,4 @@
-/* base.css — Old Newspaper Editorial */
+/* base.css — 1940s Newspaper Caricature — PUNCHY edition */
 
 *,
 *::before,
@@ -9,52 +9,50 @@
 }
 
 :root {
-  /* Aged paper palette */
-  --paper: #F5F0E1;
-  --paper-dark: #EDE8D6;
-  --paper-edge: #E2DACA;
-  --ink: #1A1714;
-  --ink-light: #3D3830;
-  --ink-faded: #8A8378;
-  --ink-ghost: #B5AFA4;
-  --rule: #1A1714;
-  --rule-light: rgba(26, 23, 20, 0.15);
-  --red: #8B2500;
-  --red-faded: #A0523D;
+  /* Aged newsprint palette */
+  --paper: #F0EBDB;
+  --paper-dark: #E5E0CE;
+  --paper-edge: #D8D2BF;
+  --ink: #151210;
+  --ink-light: #2E2A24;
+  --ink-faded: #706A5E;
+  --ink-ghost: #9E9788;
+  --rule: #151210;
+  --rule-light: rgba(21, 18, 16, 0.12);
+  --red: #8B1A1A;
+  --red-bright: #B22222;
 
-  /* Typography — newspaper stack */
   /* 1940s newspaper typography */
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Libre Caslon Text', Georgia, serif;
   --font-ui: 'DM Sans', system-ui, sans-serif;
   --font-mono: 'Geist Mono', 'Courier New', monospace;
 
-  /* Spacing */
+  /* Tighter spacing — newspapers are DENSE */
   --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-20: 80px;
-  --space-24: 96px;
-  --space-32: 128px;
+  --space-2: 6px;
+  --space-3: 10px;
+  --space-4: 14px;
+  --space-6: 20px;
+  --space-8: 28px;
+  --space-12: 40px;
+  --space-16: 56px;
+  --space-20: 72px;
+  --space-24: 88px;
+  --space-32: 112px;
+  --space-40: 140px;
 
-  /* Column gutter */
-  --gutter: 24px;
+  --gutter: 20px;
   --rule-width: 1px;
 
-  /* Motion */
+  /* Snappier motion */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --duration-fast: 150ms;
-  --duration-base: 300ms;
-  --duration-slow: 500ms;
+  --duration-fast: 120ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
 
-  /* Cursor */
-  --cursor-size: 12px;
+  --cursor-size: 10px;
 }
 
 html {
@@ -62,7 +60,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  background-color: var(--paper);
+  background-color: var(--paper-edge);
   color: var(--ink);
   cursor: none;
 }
@@ -70,56 +68,51 @@ html {
 body {
   font-family: var(--font-body);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.55;
   overflow-x: hidden;
-  background-color: var(--paper);
-  position: relative;
+  background-color: var(--paper-edge);
 }
 
 /* Shader canvas provides the paper texture — CSS just needs transparent bg */
 
-/* Newspaper typography scale */
+/* PUNCHY typography scale */
 h1, h2, h3, h4, h5 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
   color: var(--ink);
   overflow-wrap: break-word;
   word-wrap: break-word;
+  text-transform: uppercase;
 }
 
-/* Banner headline */
 h1 {
-  font-size: clamp(3rem, 8vw, 6rem);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-}
-
-/* Section headline */
-h2 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
   line-height: 1.0;
   letter-spacing: -0.02em;
 }
 
-/* Article headline */
-h3 {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  line-height: 1.15;
+h2 {
+  font-size: clamp(1.75rem, 4.5vw, 3rem);
+  line-height: 1.05;
   letter-spacing: -0.01em;
 }
 
+h3 {
+  font-size: clamp(1.125rem, 2.5vw, 1.625rem);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
 h4 {
-  font-size: 1rem;
-  font-family: var(--font-body);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   font-size: 0.6875rem;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  letter-spacing: 0.12em;
 }
 
 p {
-  max-width: 65ch;
-  line-height: 1.7;
+  max-width: 60ch;
+  line-height: 1.65;
   color: var(--ink-light);
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -131,45 +124,45 @@ a {
   cursor: none;
 }
 
-/* Section header — newspaper style */
+/* Section header — newspaper style, BOLDER */
 .section-head {
   font-family: var(--font-ui);
-  font-size: 0.625rem;
-  font-weight: 600;
+  font-size: 0.5625rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--ink-faded);
+  letter-spacing: 0.18em;
+  color: var(--ink);
   padding-bottom: var(--space-2);
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
   display: inline-block;
 }
 
 /* Dateline / byline */
 .dateline {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
-  letter-spacing: 0.1em;
+  font-size: 0.5625rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-ghost);
 }
 
-/* Kicker — small text above headline */
+/* Kicker — PUNCHY red label */
 .kicker {
   font-family: var(--font-ui);
-  font-size: 0.6875rem;
-  font-weight: 500;
+  font-size: 0.625rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--red);
+  letter-spacing: 0.12em;
+  color: var(--red-bright);
 }
 
-/* Drop cap — 1940s newspaper style, 3-line */
+/* Drop cap — 1940s newspaper style, 3-line, BOLD */
 .drop-cap::first-letter {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 900;
   float: left;
-  font-size: 4.2em;
-  line-height: 0.75;
+  font-size: 4.5em;
+  line-height: 0.72;
   padding-right: 0.08em;
   padding-top: 0.05em;
   margin-bottom: -0.1em;
@@ -187,7 +180,7 @@ a {
   }
 }
 
-/* Horizontal rule — thick/thin newspaper style */
+/* Horizontal rules — PUNCHIER */
 .rule {
   border: none;
   border-top: var(--rule-width) solid var(--rule);
@@ -195,14 +188,22 @@ a {
 }
 
 .rule--thick {
-  border-top-width: 3px;
+  border-top-width: 4px;
 }
 
 .rule--double {
-  border-top: 3px solid var(--rule);
-  padding-top: 3px;
+  border-top: 4px solid var(--rule);
+  padding-top: 2px;
   border-bottom: 1px solid var(--rule);
   height: 0;
+}
+
+/* Ink bleed — heavier for punch */
+.ink-bleed {
+  text-shadow:
+    0.5px 0.3px 0 rgba(21, 18, 16, 0.1),
+    -0.4px 0.2px 0 rgba(21, 18, 16, 0.07),
+    0.2px 0.5px 0 rgba(21, 18, 16, 0.05);
 }
 
 code, .mono {
@@ -211,13 +212,13 @@ code, .mono {
 }
 
 ::selection {
-  background-color: var(--ink);
-  color: var(--paper);
+  background-color: var(--red-bright);
+  color: white;
 }
 
 :focus-visible {
-  outline: 1px solid var(--ink);
-  outline-offset: 3px;
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -236,98 +237,21 @@ img {
   display: block;
 }
 
-/* Text reveal helpers */
+/* Dark sections */
+.u-theme-dark {
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+/* Text helpers */
 .clip { overflow: hidden; display: inline-block; }
 .char { display: inline-block; will-change: transform, opacity; }
 .will-reveal { opacity: 0; transform: translateY(40px); }
 
-/* === VINTAGE PRINT EFFECTS === */
-
-/* Halftone filter for images */
-.halftone {
-  filter: grayscale(100%) contrast(1.2) brightness(1.1);
-  mix-blend-mode: multiply;
-}
-
-/* Sepia vintage photo treatment */
-.vintage-photo {
-  filter: sepia(40%) contrast(1.1) brightness(0.95) grayscale(30%);
-}
-
-/* Ink bleed on headlines — simulates press bleed */
-.ink-bleed {
-  text-shadow:
-    0.4px 0.2px 0 rgba(26, 23, 20, 0.07),
-    -0.3px 0.1px 0 rgba(26, 23, 20, 0.05),
-    0.1px 0.4px 0 rgba(26, 23, 20, 0.04),
-    -0.2px -0.1px 0 rgba(26, 23, 20, 0.03);
-}
-
-/* Slight misregistration effect — text appears slightly printed off-axis */
-.misprint {
-  transform: rotate(-0.15deg);
-}
-
-/* Torn edge effect for images/sections */
-.torn-edge {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 20'%3E%3Cpath d='M0,10 Q25,0 50,8 T100,10 T150,7 T200,12 T250,9 T300,11 T350,8 T400,10 T450,7 T500,12 T550,9 T600,10 T650,8 T700,11 T750,9 T800,10 T850,12 T900,8 T950,10 T1000,9 L1000,0 L0,0 Z' fill='black'/%3E%3C/svg%3E");
-  -webkit-mask-size: 100% 12px;
-  -webkit-mask-position: bottom;
-  -webkit-mask-repeat: no-repeat;
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 20'%3E%3Cpath d='M0,10 Q25,0 50,8 T100,10 T150,7 T200,12 T250,9 T300,11 T350,8 T400,10 T450,7 T500,12 T550,9 T600,10 T650,8 T700,11 T750,9 T800,10 T850,12 T900,8 T950,10 T1000,9 L1000,0 L0,0 Z' fill='black'/%3E%3C/svg%3E");
-  mask-size: 100% 12px;
-  mask-position: bottom;
-  mask-repeat: no-repeat;
-}
-
-/* Old newspaper price/date stamp */
-.stamp {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.5625rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-faded);
-  border: 1px solid var(--ink-ghost);
-  padding: 2px 8px;
-  transform: rotate(-1.5deg);
-}
-
-/* Classified ad styling */
-.classified {
-  font-size: 0.75rem;
-  line-height: 1.5;
-  color: var(--ink-light);
-  border: 1px solid var(--ink);
-  padding: var(--space-4);
-}
-
-.classified__title {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 400;
-  text-align: center;
-  border-bottom: 1px solid var(--rule-light);
-  padding-bottom: var(--space-2);
-  margin-bottom: var(--space-3);
-}
-
-/* Weather-style sidebar box */
-.sidebar-box {
-  border: 2px solid var(--ink);
-  padding: var(--space-4);
-}
-
-.sidebar-box__title {
-  font-family: var(--font-body);
-  font-size: 0.5625rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  text-align: center;
-  background: var(--ink);
-  color: var(--paper);
-  margin: calc(-1 * var(--space-4));
-  margin-bottom: var(--space-4);
-  padding: var(--space-2);
+/* Newspaper column text */
+.columns p {
+  max-width: none;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }

@@ -105,10 +105,11 @@ watch(() => route.path, () => { menuOpen.value = false })
 }
 
 .masthead__link {
-  font-size: 0.6875rem;
-  font-weight: 500;
+  font-family: var(--font-ui);
+  font-size: 0.625rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--ink-faded);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out);
@@ -135,20 +136,23 @@ watch(() => route.path, () => { menuOpen.value = false })
 
 .masthead__name {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: 900;
   color: var(--ink);
   text-decoration: none;
   letter-spacing: -0.02em;
-  line-height: 1;
+  line-height: 0.95;
+  text-transform: uppercase;
 }
 
 .masthead__subtitle {
-  font-size: 0.6875rem;
-  font-weight: 500;
+  font-family: var(--font-ui);
+  font-size: 0.5625rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.3em;
   color: var(--ink-faded);
-  margin-top: var(--space-2);
+  margin-top: var(--space-3);
   max-width: none;
 }
 

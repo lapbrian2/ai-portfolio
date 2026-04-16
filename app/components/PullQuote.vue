@@ -6,49 +6,49 @@ defineProps<{
 </script>
 
 <template>
-  <blockquote class="pull-quote scroll-reveal">
-    <div class="pull-quote__ornament">&diams;</div>
-    <p class="pull-quote__text">&ldquo;{{ quote }}&rdquo;</p>
-    <div class="pull-quote__rule" />
-    <cite v-if="attribution" class="pull-quote__cite">&mdash; {{ attribution }}</cite>
+  <blockquote class="pq scroll-reveal">
+    <div class="pq__rule" />
+    <p class="pq__text">&ldquo;{{ quote }}&rdquo;</p>
+    <div class="pq__rule pq__rule--thin" />
+    <cite v-if="attribution" class="pq__cite">&mdash; {{ attribution }}</cite>
   </blockquote>
 </template>
 
 <style scoped>
-.pull-quote {
+.pq {
   margin: var(--space-12) auto;
-  padding: var(--space-8) var(--space-6);
+  padding: var(--space-6) 0;
   text-align: center;
-  max-width: 550px;
-  position: relative;
+  max-width: 500px;
 }
 
-.pull-quote__ornament {
-  font-size: 1.5rem;
-  color: var(--ink);
-  margin-bottom: var(--space-4);
-  letter-spacing: 0.5em;
+.pq__rule {
+  width: 80px;
+  height: 4px;
+  background: var(--ink);
+  margin: 0 auto var(--space-4);
 }
 
-.pull-quote__text {
+.pq__rule--thin {
+  height: 1px;
+  margin: var(--space-4) auto 0;
+}
+
+.pq__text {
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  line-height: 1.35;
+  font-weight: 700;
+  line-height: 1.3;
   color: var(--ink);
   font-style: italic;
   max-width: none;
   text-align: center;
+  text-transform: none;
 }
 
-.pull-quote__rule {
-  width: 60px;
-  height: 1px;
-  background: var(--ink);
-  margin: var(--space-4) auto;
-}
-
-.pull-quote__cite {
+.pq__cite {
   display: block;
+  margin-top: var(--space-3);
   font-family: var(--font-mono);
   font-size: 0.5rem;
   font-style: normal;

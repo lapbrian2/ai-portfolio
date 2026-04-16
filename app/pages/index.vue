@@ -161,20 +161,29 @@ onMounted(() => {
 
     <div class="container"><hr class="rule scroll-rule" /></div>
 
-    <!-- Illustration break -->
+    <!-- Illustration strip — multiple pulp images -->
     <section class="section" style="padding: var(--space-8) 0;">
       <div class="container">
-        <figure class="illustration scroll-scale">
-          <img
-            src="/images/retro-sci-fi.png"
-            alt="Retro sci-fi illustration of an engineer working on mechanical arms"
-            class="halftone-img"
-            loading="lazy"
-          />
-          <figcaption class="illustration__caption">
-            <span class="dateline">Illustration</span> &mdash; The builder at work. Oil on canvas, artist unknown, c. 2026.
-          </figcaption>
-        </figure>
+        <div class="illustration-strip scroll-stagger">
+          <figure class="illustration">
+            <img src="/images/retro-sci-fi.png" alt="Engineer working on mechanical arms" class="halftone-img" loading="lazy" />
+            <figcaption class="illustration__caption">
+              <span class="dateline">Illustration</span> &mdash; The builder at work.
+            </figcaption>
+          </figure>
+          <figure class="illustration">
+            <img src="/images/pulp-vintage.png" alt="Street artist facing a mechanical creature" class="halftone-img" loading="lazy" />
+            <figcaption class="illustration__caption">
+              <span class="dateline">Illustration</span> &mdash; Art vs. Machine.
+            </figcaption>
+          </figure>
+          <figure class="illustration">
+            <img src="/images/pulp-sci-fi-2.png" alt="Newsboy reading the paper in shock" class="halftone-img" loading="lazy" />
+            <figcaption class="illustration__caption">
+              <span class="dateline">Illustration</span> &mdash; Extra! Extra! Read all about it.
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -434,10 +443,27 @@ onMounted(() => {
   color: var(--ink);
 }
 
-/* Illustration break */
+/* Illustration strip — newspaper photo layout */
+.illustration-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .illustration-strip {
+    grid-template-columns: 1.2fr 1fr 0.8fr;
+    gap: var(--space-4);
+    align-items: start;
+  }
+
+  .illustration-strip .illustration:nth-child(2) {
+    margin-top: var(--space-8);
+  }
+}
+
 .illustration {
   margin: 0;
-  max-width: 800px;
 }
 
 .illustration img {
@@ -448,11 +474,12 @@ onMounted(() => {
 
 .illustration__caption {
   font-family: var(--font-mono);
-  font-size: 0.5625rem;
+  font-size: 0.5rem;
   color: var(--ink-faded);
   padding: var(--space-2) 0;
   font-style: italic;
   border-bottom: 1px solid var(--rule-light);
+  max-width: none;
 }
 
 /* Story hover image — floats on right, follows cursor */

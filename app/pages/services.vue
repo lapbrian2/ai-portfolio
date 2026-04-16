@@ -16,6 +16,18 @@ useScrollVelocity('.ink-bleed')
       </div>
     </section>
 
+    <!-- Illustration -->
+    <section style="padding: var(--space-4) 0;">
+      <div class="container">
+        <figure class="page-illustration scroll-scale">
+          <img src="/images/pulp-sci-fi-3.png" alt="Vintage pulp illustration — NEW!" class="halftone-img" loading="lazy" />
+          <figcaption class="page-illustration__caption">
+            <span class="dateline">Advertisement</span> &mdash; New services available. Enquire within.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
     <div class="container"><hr class="rule rule--thick" /></div>
 
     <!-- Creative -->
@@ -195,6 +207,25 @@ useScrollVelocity('.ink-bleed')
 
 .sidebar {
   padding-top: var(--space-2);
+}
+
+.page-illustration {
+  margin: 0;
+  max-width: 500px;
+}
+
+.page-illustration img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--rule-light);
+}
+
+.page-illustration__caption {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--ink-faded);
+  padding: var(--space-2) 0;
+  font-style: italic;
 }
 
 @media (max-width: 768px) {

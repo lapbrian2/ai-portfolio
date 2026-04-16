@@ -232,62 +232,68 @@ onMounted(() => {
         />
 
         <div ref="storiesRef" class="stories mt-8">
-          <!-- Lead story — larger, with image -->
-          <article class="story story--lead scroll-reveal" v-if="featuredProjects[0]">
-            <component
-              :is="featuredProjects[0].url ? 'a' : 'div'"
-              :href="featuredProjects[0].url"
-              :target="featuredProjects[0].url ? '_blank' : undefined"
-              class="story__lead-inner"
-              data-cursor
-              data-cursor-text="Read"
-            >
-              <div class="story__lead-text">
-                <span class="kicker">{{ featuredProjects[0].category === 'art' ? 'Art' : featuredProjects[0].category === 'tech' ? 'Technology' : 'Creative' }}</span>
-                <h3 class="story__headline ink-bleed mt-2">{{ featuredProjects[0].headline }}</h3>
-                <p class="story__deck mt-2">{{ featuredProjects[0].deck }}</p>
-                <p class="story__body mt-4">{{ featuredProjects[0].body }}</p>
-                <p v-if="featuredProjects[0].pullQuote" class="story__pull-quote mt-4">
-                  &ldquo;{{ featuredProjects[0].pullQuote }}&rdquo;
-                </p>
-                <div class="story__foot mt-4">
-                  <span class="dateline">{{ featuredProjects[0].dateline }} &mdash; {{ featuredProjects[0].byline }}</span>
-                </div>
-              </div>
-              <figure v-if="featuredProjects[0].image" class="story__lead-img">
-                <img :src="featuredProjects[0].image" :alt="featuredProjects[0].title" class="img-hover" loading="lazy" />
-              </figure>
-            </component>
+
+          <!-- LEAD STORY — dominates the page, full width image -->
+          <article class="lead" v-if="featuredProjects[0]">
+            <figure v-if="featuredProjects[0].image" class="lead__fig entrance--image">
+              <img :src="featuredProjects[0].image" :alt="featuredProjects[0].title" class="img-hover" loading="lazy" />
+              <figcaption class="lead__caption">
+                (Staff Illustration) &mdash; {{ featuredProjects[0].title }}
+              </figcaption>
+            </figure>
+            <div class="lead__body">
+              <span class="kicker">{{ featuredProjects[0].category === 'art' ? 'Art' : 'Technology' }}</span>
+              <h2 class="lead__headline ink-bleed mt-2">{{ featuredProjects[0].headline }}</h2>
+              <p class="lead__deck mt-2">{{ featuredProjects[0].deck }}</p>
+              <ArticleMeta
+                :byline="featuredProjects[0].byline"
+                :dateline="featuredProjects[0].dateline"
+                read-time="3"
+                :section="featuredProjects[0].category === 'art' ? 'Art' : 'Technology'"
+              />
+              <p class="lead__text drop-cap">{{ featuredProjects[0].body }}</p>
+              <blockquote v-if="featuredProjects[0].pullQuote" class="lead__quote">
+                <p>&ldquo;{{ featuredProjects[0].pullQuote }}&rdquo;</p>
+              </blockquote>
+            </div>
             <hr class="rule rule--thick" />
           </article>
 
-          <!-- Remaining stories — compact list -->
-          <div class="stories-grid scroll-stagger">
+          <!-- SECONDARY STORIES — 2-column layout with images and body text -->
+          <div class="secondary-grid">
             <article
-              v-for="project in featuredProjects.slice(1)"
+              v-for="project in featuredProjects.slice(1, 3)"
               :key="project.title"
-              class="story"
+              class="secondary story-hover"
+              data-cursor
             >
-              <component
-                :is="project.url ? 'a' : 'div'"
-                :href="project.url"
-                :target="project.url ? '_blank' : undefined"
-                class="story__inner"
-                data-cursor
-                data-cursor-text="Read"
-              >
-                <figure v-if="project.image" class="story__thumb">
-                  <img :src="project.image" :alt="project.title" class="img-hover" loading="lazy" />
-                </figure>
-                <div>
-                  <span class="kicker">{{ project.category === 'art' ? 'Art' : project.category === 'tech' ? 'Technology' : 'Creative' }}</span>
-                  <h3 class="story__headline mt-1">{{ project.headline }}</h3>
-                  <p class="story__deck mt-1">{{ project.deck }}</p>
-                  <div class="story__foot mt-3">
-                    <span class="dateline">{{ project.dateline }} — {{ project.byline }}</span>
-                  </div>
-                </div>
-              </component>
+              <figure v-if="project.image" class="secondary__fig">
+                <img :src="project.image" :alt="project.title" class="img-hover" loading="lazy" />
+              </figure>
+              <span class="kicker mt-4">{{ project.category === 'art' ? 'Art' : project.category === 'tech' ? 'Technology' : 'Creative' }}</span>
+              <h3 class="secondary__headline ink-bleed mt-1">{{ project.headline }}</h3>
+              <p class="secondary__deck mt-1">{{ project.deck }}</p>
+              <p class="secondary__body mt-3">{{ project.body.substring(0, 250) }}...</p>
+              <div class="story__foot mt-3">
+                <span class="dateline">{{ project.dateline }} &mdash; {{ project.byline }}</span>
+              </div>
+              <hr class="rule" />
+            </article>
+          </div>
+
+          <!-- BRIEFS — compressed headlines, text-only -->
+          <div class="briefs">
+            <h4 class="section-head">In Brief</h4>
+            <article
+              v-for="project in featuredProjects.slice(3)"
+              :key="project.title"
+              class="brief story-hover"
+              data-cursor
+            >
+              <span class="kicker">{{ project.category === 'art' ? 'Art' : project.category === 'tech' ? 'Technology' : 'Creative' }}</span>
+              <h3 class="brief__headline">{{ project.headline }}</h3>
+              <p class="brief__deck">{{ project.deck }}</p>
+              <span class="dateline">{{ project.dateline }} &mdash; {{ project.byline }}</span>
               <hr class="rule" />
             </article>
           </div>
@@ -583,7 +589,133 @@ onMounted(() => {
   max-width: none;
 }
 
-/* Stories */
+/* === LEAD STORY — dominates the page === */
+.lead__fig {
+  margin: 0 0 var(--space-6);
+}
+
+.lead__fig img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--rule-light);
+}
+
+.lead__caption {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--ink-faded);
+  padding: var(--space-2) 0;
+  font-style: italic;
+  max-width: none;
+}
+
+.lead__headline {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.05;
+}
+
+.lead__deck {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-faded);
+  max-width: 60ch;
+}
+
+.lead__text {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  max-width: 65ch;
+  color: var(--ink-light);
+}
+
+.lead__quote {
+  margin: var(--space-6) 0;
+  padding: var(--space-4) 0 var(--space-4) var(--space-6);
+  border-left: 3px solid var(--ink);
+}
+
+.lead__quote p {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--ink);
+  max-width: 45ch;
+}
+
+/* === SECONDARY STORIES — 2-column with images === */
+.secondary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  margin: var(--space-8) 0;
+}
+
+@media (min-width: 768px) {
+  .secondary-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gutter);
+  }
+
+  .secondary-grid .secondary:nth-child(2) {
+    border-left: 1px solid var(--rule-light);
+    padding-left: var(--gutter);
+  }
+}
+
+.secondary__fig {
+  margin: 0 0 var(--space-4);
+}
+
+.secondary__fig img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--rule-light);
+}
+
+.secondary__headline {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.15;
+}
+
+.secondary__deck {
+  font-style: italic;
+  font-size: 0.8125rem;
+  color: var(--ink-faded);
+}
+
+.secondary__body {
+  font-size: 0.8125rem;
+  line-height: 1.75;
+  color: var(--ink-light);
+}
+
+/* === BRIEFS — compressed text-only === */
+.briefs {
+  margin-top: var(--space-6);
+  border-top: 2px solid var(--ink);
+  padding-top: var(--space-4);
+}
+
+.brief {
+  padding: var(--space-3) 0;
+}
+
+.brief__headline {
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-top: var(--space-1);
+}
+
+.brief__deck {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--ink-faded);
+  margin-top: var(--space-1);
+  max-width: none;
+}
+
+/* Stories container */
 .stories {
   display: flex;
   flex-direction: column;

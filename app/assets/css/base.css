@@ -163,15 +163,28 @@ a {
   color: var(--red);
 }
 
-/* Drop cap */
+/* Drop cap — 1940s newspaper style, 3-line */
 .drop-cap::first-letter {
   font-family: var(--font-display);
+  font-weight: 700;
   float: left;
-  font-size: 4em;
-  line-height: 0.8;
-  padding-right: 8px;
-  padding-top: 4px;
+  font-size: 4.2em;
+  line-height: 0.75;
+  padding-right: 0.08em;
+  padding-top: 0.05em;
+  margin-bottom: -0.1em;
   color: var(--ink);
+}
+
+@supports (initial-letter: 3) {
+  .drop-cap::first-letter {
+    float: none;
+    initial-letter: 3;
+    margin-right: 0.1em;
+    font-size: unset;
+    line-height: unset;
+    padding: 0;
+  }
 }
 
 /* Horizontal rule — thick/thin newspaper style */

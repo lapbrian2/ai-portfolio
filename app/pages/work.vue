@@ -1,169 +1,171 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
 import { projects } from '~/data/projects'
 
-useHead({ title: 'Projects — The Brian Lapinski Record' })
+useHead({ title: 'Archives — The Lapinski Record' })
 useScrollVelocity('.ink-bleed')
-
-const activeCategory = ref<'all' | 'art' | 'tech' | 'creative'>('all')
-
-const filteredProjects = computed(() => {
-  if (activeCategory.value === 'all') return projects
-  return projects.filter(p => p.category === activeCategory.value)
-})
-
-const categories = [
-  { value: 'all', label: 'All' },
-  { value: 'art', label: 'Art' },
-  { value: 'tech', label: 'Tech' },
-  { value: 'creative', label: 'Creative' },
-] as const
 </script>
 
 <template>
   <div>
-    <section class="section">
+    <section class="section" style="padding-bottom: var(--space-8);">
       <div class="container">
-        <h4 class="section-head">Archives</h4>
-        <h2 class="ink-bleed mt-6">All Stories</h2>
+        <h4 class="section-head entrance entrance--1">Archives</h4>
+        <h2 class="ink-bleed mt-6 entrance entrance--2">All Stories</h2>
         <ScrollRevealText
-          class="deck mt-6"
-          text="Art, technology, and creative experiments. Each story represents work that shipped — exhibitions, tools, experiences, and recognition."
+          class="deck mt-4"
+          text="A complete record of dispatches filed by our correspondents. Art, technology, and creative experiments — each story verified by the editors of this publication."
         />
-
-        <nav class="filter mt-8" aria-label="Filter stories">
-          <button
-            v-for="cat in categories"
-            :key="cat.value"
-            class="filter__btn"
-            :class="{ 'filter__btn--active': activeCategory === cat.value }"
-            @click="activeCategory = cat.value"
-            data-cursor
-          >
-            {{ cat.label }}
-          </button>
-        </nav>
       </div>
     </section>
 
     <div class="container"><hr class="rule rule--thick" /></div>
 
-    <section class="section">
-      <div class="container">
-        <div class="stories scroll-stagger">
-          <article
-            v-for="project in filteredProjects"
-            :key="project.title"
-            class="story"
-          >
-            <component
-              :is="project.url ? 'a' : 'div'"
-              :href="project.url"
-              :target="project.url ? '_blank' : undefined"
-              class="story__inner"
-              data-cursor
-              data-cursor-text="Read"
-            >
-              <div class="story__head">
-                <span class="kicker">{{ project.category === 'art' ? 'Art' : project.category === 'tech' ? 'Technology' : 'Creative' }}</span>
-              </div>
-              <h3 class="story__headline ink-bleed">{{ project.headline }}</h3>
-              <p class="story__body mt-2">{{ project.description }}</p>
-              <div class="story__foot mt-3">
-                <span class="dateline">{{ project.dateline }} — {{ project.byline }}</span>
-                <div class="story__tags">
-                  <span v-for="tag in project.tags" :key="tag" class="story__tag">{{ tag }}</span>
-                </div>
-              </div>
-            </component>
-            <hr class="rule" />
-          </article>
+    <!-- Full articles -->
+    <template v-for="(project, i) in projects" :key="project.title">
+      <article class="section article-full">
+        <div class="container">
+          <!-- Article header -->
+          <ArticleMeta
+            :byline="project.byline"
+            :dateline="project.dateline"
+            :read-time="String(Math.ceil(project.body.split(' ').length / 200) + 2)"
+            :section="project.category === 'art' ? 'Art' : project.category === 'tech' ? 'Technology' : 'Creative'"
+          />
+
+          <!-- Image + headline layout -->
+          <div class="article-full__layout" :class="{ 'article-full__layout--reverse': i % 2 !== 0 }">
+            <div class="article-full__text">
+              <span class="kicker">{{ project.category === 'art' ? 'Art' : project.category === 'tech' ? 'Technology' : 'Creative' }}</span>
+              <h2 class="article-full__headline ink-bleed mt-2 scroll-reveal">{{ project.headline }}</h2>
+              <p class="article-full__deck mt-2">{{ project.deck }}</p>
+            </div>
+            <figure v-if="project.image" class="article-full__fig scroll-scale">
+              <img :src="project.image" :alt="project.title" class="img-hover" loading="lazy" />
+              <figcaption class="article-full__caption">
+                (Staff Illustration) &mdash; {{ project.title }}
+              </figcaption>
+            </figure>
+          </div>
+
+          <!-- Body text -->
+          <div class="article-full__body mt-8 scroll-reveal">
+            <p class="article-full__lede drop-cap">{{ project.body }}</p>
+          </div>
+
+          <!-- Pull quote -->
+          <PullQuote
+            v-if="project.pullQuote"
+            :quote="project.pullQuote"
+            :attribution="project.byline === 'By Our Special Correspondent' ? 'As told to our correspondent' : project.byline"
+          />
+
+          <!-- Tags -->
+          <div class="article-full__tags mt-6">
+            <span v-for="tag in project.tags" :key="tag" class="article-full__tag">{{ tag }}</span>
+          </div>
         </div>
+      </article>
+
+      <!-- Divider between articles -->
+      <div v-if="i < projects.length - 1" class="container">
+        <OrnamentalRule />
       </div>
-    </section>
+    </template>
   </div>
 </template>
 
 <style scoped>
 .deck {
-  font-size: 1.0625rem;
   font-style: italic;
-  line-height: 1.6;
-  color: var(--ink-light);
+  font-size: 1rem;
+  color: var(--ink-faded);
   max-width: 55ch;
 }
 
-.filter {
-  display: flex;
-  gap: var(--space-1);
+.article-full {
+  padding: var(--space-12) 0;
 }
 
-.filter__btn {
-  padding: var(--space-2) var(--space-4);
-  font-family: var(--font-mono);
-  font-size: 0.5625rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: none;
-  border: 1px solid transparent;
-  color: var(--ink-ghost);
-  cursor: none;
-  transition: all var(--duration-fast) var(--ease-out);
+.article-full__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: start;
+  margin-top: var(--space-6);
 }
 
-.filter__btn:hover {
+@media (min-width: 768px) {
+  .article-full__layout {
+    grid-template-columns: 1.3fr 1fr;
+  }
+
+  .article-full__layout--reverse {
+    grid-template-columns: 1fr 1.3fr;
+  }
+
+  .article-full__layout--reverse .article-full__text {
+    order: 2;
+  }
+
+  .article-full__layout--reverse .article-full__fig {
+    order: 1;
+  }
+}
+
+.article-full__headline {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  line-height: 1.1;
+}
+
+.article-full__deck {
+  font-style: italic;
+  font-size: 0.9375rem;
   color: var(--ink-faded);
+  max-width: 50ch;
 }
 
-.filter__btn--active {
-  color: var(--ink);
-  border-color: var(--ink);
+.article-full__fig {
+  margin: 0;
 }
 
-.stories {
-  display: flex;
-  flex-direction: column;
-}
-
-.story__inner {
+.article-full__fig img {
+  width: 100%;
   display: block;
-  padding: var(--space-6) 0;
-  text-decoration: none;
-  color: inherit;
-  transition: padding-left var(--duration-base) var(--ease-out);
+  border: 1px solid var(--rule-light);
 }
 
-.story__inner:hover { padding-left: var(--space-3); }
-.story__inner:hover .story__headline { color: var(--red); }
-
-.story__headline {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  transition: color var(--duration-base) var(--ease-out);
+.article-full__caption {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--ink-faded);
+  padding: var(--space-2) 0;
+  font-style: italic;
+  max-width: none;
 }
 
-.story__body {
-  font-size: 0.8125rem;
-  line-height: 1.7;
-  max-width: 65ch;
+.article-full__body {
+  max-width: 700px;
 }
 
-.story__foot {
+.article-full__lede {
+  font-size: 0.9375rem;
+  line-height: 1.85;
+  color: var(--ink-light);
+}
+
+.article-full__tags {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
   gap: var(--space-2);
+  flex-wrap: wrap;
 }
 
-.story__tags { display: flex; gap: var(--space-2); }
-
-.story__tag {
+.article-full__tag {
   font-family: var(--font-mono);
   font-size: 0.5rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-ghost);
-  padding: 1px 5px;
+  padding: 2px 6px;
   border: 1px solid var(--rule-light);
 }
 </style>

@@ -18,7 +18,7 @@ useScrollVelocity('.ink-bleed')
       </div>
     </section>
 
-    <div class="container"><hr class="rule rule--thick" /></div>
+    <ExtraExtra text="THE COMPLETE ARCHIVES &bull; EVERY DISPATCH &bull; EVERY STORY &bull; VERIFIED BY THE EDITORS" />
 
     <!-- Full articles -->
     <template v-for="(project, i) in projects" :key="project.title">

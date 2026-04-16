@@ -128,10 +128,11 @@ onMounted(() => {
 
         <div class="banner__layout">
           <div class="banner__content">
-            <p class="kicker mb-4 entrance entrance--2">Exclusive Report</p>
+            <p class="kicker mb-4 entrance entrance--2">&#9733; Exclusive Report &#9733;</p>
             <h1 ref="heroRef" class="ink-bleed entrance--hero">
               The Artist Who Builds
             </h1>
+            <p class="subhead entrance entrance--3">Six Promotions. Four Galleries. 1,138 Commits. One Man.</p>
             <div class="banner__deck mt-8 entrance entrance--4">
               <p class="deck">
                 Exploring what it means to be human through images and code.
@@ -158,7 +159,7 @@ onMounted(() => {
       </div>
     </section>
 
-    <div class="container"><hr class="rule scroll-rule" /></div>
+    <ExtraExtra />
 
     <!-- Section Jump — table of contents -->
     <section style="padding: var(--space-4) 0;">
@@ -245,7 +246,7 @@ onMounted(() => {
       </div>
     </section>
 
-    <OrnamentalRule />
+    <StopThePresses />
 
     <!-- Featured stories -->
     <section id="stories" class="section">
@@ -417,6 +418,18 @@ onMounted(() => {
 .banner__content h1 {
   padding-bottom: 0.15em;
   overflow: visible;
+}
+
+.subhead {
+  font-family: var(--font-display);
+  font-size: clamp(0.875rem, 2vw, 1.25rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  margin-top: var(--space-3);
+  max-width: none;
 }
 
 .banner__image {

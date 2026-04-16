@@ -258,6 +258,18 @@ onMounted(() => {
       </div>
     </section>
 
+    <!-- Vintage inline ad -->
+    <section style="padding: var(--space-6) 0;">
+      <div class="container">
+        <figure class="inline-ad scroll-scale">
+          <img src="/images/pulp-new.png" alt="Vintage advertisement illustration" class="halftone-img" loading="lazy" />
+          <figcaption class="inline-ad__caption">
+            <span class="dateline">Advertisement</span> &mdash; Have you seen these innovations? The future is now!
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
     <PullQuote
       quote="Every system ships. Every process is measurable. Every build has a purpose."
       attribution="Brian Lapinski, on his approach to work"
@@ -359,6 +371,28 @@ onMounted(() => {
 
 .banner__deck {
   max-width: 650px;
+}
+
+/* Vintage inline ad */
+.inline-ad {
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: center;
+}
+
+.inline-ad img {
+  width: 100%;
+  display: block;
+  border: 2px solid var(--ink);
+}
+
+.inline-ad__caption {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--ink-faded);
+  padding: var(--space-2) 0;
+  font-style: italic;
+  text-align: center;
 }
 
 .deck {

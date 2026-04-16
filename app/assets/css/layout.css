@@ -24,11 +24,18 @@
   }
 }
 
-/* Newspaper column layout */
+/* Newspaper column layout — CSS multi-column for body text */
 .columns {
   column-count: 1;
   column-gap: var(--gutter);
   column-rule: var(--rule-width) solid var(--rule-light);
+}
+
+.columns p {
+  max-width: none;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 @media (min-width: 768px) {

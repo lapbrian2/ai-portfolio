@@ -68,7 +68,7 @@ const categories = [
                 <span class="kicker">{{ project.category === 'art' ? 'Art' : project.category === 'tech' ? 'Technology' : 'Creative' }}</span>
               </div>
               <h3 class="story__headline ink-bleed">{{ project.headline }}</h3>
-              <p class="story__body mt-2 text-justify">{{ project.description }}</p>
+              <p class="story__body mt-2">{{ project.description }}</p>
               <div class="story__foot mt-3">
                 <span class="dateline">{{ project.dateline }} — {{ project.byline }}</span>
                 <div class="story__tags">

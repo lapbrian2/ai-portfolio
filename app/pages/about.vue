@@ -15,19 +15,19 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
             <h2 class="ink-bleed">The Artist Who Builds</h2>
             <div class="bio mt-8">
               <ScrollRevealText
-                class="lede text-justify"
+                class="lede"
                 text="Brian Lapinski uses images as a way to explore what it means to be human. His work is rooted in personal exploration, emotion, and connection — not trends or technique for its own sake. He's interested in images that speak without words and create a quiet connection between people."
               />
               <ScrollRevealText
-                class="body-col mt-6 text-justify"
+                class="body-col mt-6"
                 text="Named to Lürzer's Archive 200 Best Digital Artists — one of the most prestigious recognitions in the global creative industry — Lapinski's work has shown at Dream AI Gallery in New Jersey, Fundación Nestlé Barcelona, FNAC Asturias, and Art Innovation Gallery New York. He was selected for creAtIva Magazine Volume 7 and recognized as a 2026 Mover and Shaker by Choice Dao."
               />
               <ScrollRevealText
-                class="body-col mt-6 text-justify"
+                class="body-col mt-6"
                 text="But the work doesn't stop at images. Lapinski is a Villanova-trained Lean Six Sigma Black Belt who managed programs and led teams at Amazon as an Area Manager. He founded Quick Dry Floor Care, a residential carpet cleaning operation, and now supervises at US Hydrations. The operations mindset — eliminate waste, measure everything, ship on time — carried into everything he builds."
               />
               <ScrollRevealText
-                class="body-col mt-6 text-justify"
+                class="body-col mt-6"
                 text="Through creating and teaching, he sees image-making as a form of self-discovery and shared understanding. As an AI Architect at The House of Curiosity and Ambassador for ImagineArt, he brings a systematic approach to AI art — treating image generation as reproducible craft rather than random experimentation."
               />
             </div>

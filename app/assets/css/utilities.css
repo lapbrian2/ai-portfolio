@@ -2,7 +2,7 @@
 
 .text-center { text-align: center; }
 .text-right { text-align: right; }
-.text-justify { text-align: justify; }
+/* removed text-justify — causes overflow with inline spans */
 .text-faded { color: var(--ink-faded); }
 .text-ghost { color: var(--ink-ghost); }
 

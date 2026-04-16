@@ -25,7 +25,7 @@ useScrollVelocity('.ink-bleed')
           <div class="scroll-reveal">
             <h4 class="section-head">Digital Art & Creative</h4>
             <h3 class="ink-bleed mt-4">Images That Speak Without Words</h3>
-            <p class="body-col mt-4 text-justify">
+            <p class="body-col mt-4">
               AI-generated art rooted in personal exploration, emotion, and connection.
               Midjourney, ImagineArt, and custom workflows through a systematic Style DNA
               methodology — treating image generation as reproducible craft.
@@ -62,7 +62,7 @@ useScrollVelocity('.ink-bleed')
           <div class="scroll-reveal">
             <h4 class="section-head">AI Engineering</h4>
             <h3 class="ink-bleed mt-4">Intelligent Systems That Ship</h3>
-            <p class="body-col mt-4 text-justify">
+            <p class="body-col mt-4">
               Multi-agent systems, MCP server integrations, RAG pipelines, and full-stack AI applications.
               Production AI built with enterprise rigor — not hackathon demos.
             </p>
@@ -78,7 +78,7 @@ useScrollVelocity('.ink-bleed')
           <div class="col-ruled scroll-reveal-slow">
             <h4 class="section-head">Web Development</h4>
             <h3 class="ink-bleed mt-4">Experiences That Stop the Scroll</h3>
-            <p class="body-col mt-4 text-justify">
+            <p class="body-col mt-4">
               Custom Nuxt and Vue sites, immersive Three.js experiences, scroll-driven animations,
               and design systems. Performance-first architecture.
             </p>
@@ -140,7 +140,6 @@ useScrollVelocity('.ink-bleed')
   font-size: 0.9375rem;
   line-height: 1.75;
   color: var(--ink-light);
-  max-width: none;
 }
 
 .service-list {

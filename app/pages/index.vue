@@ -97,11 +97,11 @@ onMounted(() => {
         <div class="grid grid--sidebar">
           <div>
             <ScrollRevealText
-              class="lede text-justify"
+              class="lede"
               text="Brian Lapinski uses images as a way to explore what it means to be human. His work is rooted in personal exploration, emotion, and connection — not trends or technique for its own sake. Named to Lürzer's Archive 200 Best Digital Artists and selected for creAtIva Magazine Vol. 7, his images have shown at galleries from New York to Barcelona."
             />
             <ScrollRevealText
-              class="body-col mt-8 text-justify"
+              class="body-col mt-8"
               text="But Lapinski is also a builder. A Villanova-trained Lean Six Sigma Black Belt who managed programs at Amazon, founded a cleaning company, and now supervises operations at US Hydrations. He builds AI agent systems, Three.js experiences, and tools that bridge the gap between art and engineering. 1,138 commits across 19 repositories. 46 registered skills. One cockpit to run it all."
             />
             <p class="continued mt-4 scroll-fade">
@@ -211,7 +211,7 @@ onMounted(() => {
               <h3 class="story__headline" :class="{ 'ink-bleed': i === 0 }">
                 {{ project.headline }}
               </h3>
-              <p class="story__body mt-2 text-justify">{{ project.description }}</p>
+              <p class="story__body mt-2">{{ project.description }}</p>
               <div class="story__foot mt-3">
                 <span class="dateline">{{ project.dateline }} &mdash; {{ project.byline }}</span>
                 <div class="story__tags">
@@ -239,23 +239,23 @@ onMounted(() => {
         <div class="grid grid--2 mt-8">
           <div class="scroll-reveal">
             <h3 class="ink-bleed parallax-text">AI Engineering</h3>
-            <p class="body-col mt-4 text-justify">
+            <p class="body-col mt-4">
               Multi-agent systems, MCP server integrations, RAG pipelines, and full-stack AI applications.
               Production AI built with enterprise rigor — not hackathon demos. Agents that orchestrate,
               tools that connect, pipelines that scale.
             </p>
-            <p class="body-col mt-4 text-justify">
+            <p class="body-col mt-4">
               Starting at $175/hr for contract work. Project-based pricing available for defined scopes.
             </p>
           </div>
           <div class="col-ruled scroll-reveal-slow">
             <h3 class="ink-bleed parallax-text">Web Development</h3>
-            <p class="body-col mt-4 text-justify">
+            <p class="body-col mt-4">
               Custom Nuxt and Vue sites, immersive Three.js experiences, scroll-driven animations,
               and design systems. Small business packages starting at $2,500 including Google Business
               setup and local SEO.
             </p>
-            <p class="body-col mt-4 text-justify">
+            <p class="body-col mt-4">
               Performance-first architecture. Every site scores 90+ on Lighthouse.
             </p>
           </div>
@@ -338,7 +338,7 @@ onMounted(() => {
   font-style: italic;
   line-height: 1.6;
   color: var(--ink-light);
-  max-width: none;
+  max-width: 60ch;
 }
 
 .banner__meta {
@@ -359,14 +359,12 @@ onMounted(() => {
   font-size: 0.9375rem;
   line-height: 1.75;
   color: var(--ink-light);
-  max-width: none;
 }
 
 .lede {
   font-size: 1.0625rem;
   line-height: 1.75;
   color: var(--ink);
-  max-width: none;
 }
 
 .continued {
@@ -423,7 +421,6 @@ onMounted(() => {
   font-family: var(--font-display);
   font-size: 0.9375rem;
   line-height: 1.4;
-  max-width: none;
   color: var(--ink);
 }
 

@@ -114,9 +114,11 @@ h4 {
 }
 
 p {
-  max-width: 55ch;
+  max-width: 65ch;
   line-height: 1.7;
   color: var(--ink-light);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 a {

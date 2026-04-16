@@ -1,40 +1,49 @@
 <script setup lang="ts">
 const year = new Date().getFullYear()
-
-const socialLinks = [
-  { href: 'https://github.com/lapbrian2', label: 'GitHub' },
-  { href: 'https://linkedin.com/in/brian-lapinski', label: 'LinkedIn' },
-  { href: '#', label: 'Substack' },
-  { href: '#', label: 'Gumroad' },
-]
 </script>
 
 <template>
   <footer class="footer">
     <div class="container">
-      <div class="footer__top">
+      <hr class="rule rule--thick" />
+
+      <div class="footer__grid mt-8">
         <div>
-          <p class="footer__heading">Let's build something</p>
-          <NuxtLink to="/contact" class="link-arrow mt-6">Get in touch</NuxtLink>
+          <h4 class="section-head">Enquiries</h4>
+          <p class="footer__text mt-4">
+            For project enquiries, contracts, or collaborations.
+          </p>
+          <NuxtLink to="/contact" class="link-arrow mt-4" data-cursor>
+            Send an enquiry
+          </NuxtLink>
+        </div>
+
+        <div class="col-ruled">
+          <h4 class="section-head">Navigation</h4>
+          <nav class="footer__nav mt-4">
+            <NuxtLink to="/work" data-cursor>Projects</NuxtLink>
+            <NuxtLink to="/services" data-cursor>Services</NuxtLink>
+            <NuxtLink to="/about" data-cursor>About</NuxtLink>
+            <NuxtLink to="/contact" data-cursor>Contact</NuxtLink>
+          </nav>
+        </div>
+
+        <div class="col-ruled">
+          <h4 class="section-head">Elsewhere</h4>
+          <nav class="footer__nav mt-4">
+            <a href="https://github.com/lapbrian2" target="_blank" rel="noopener noreferrer" data-cursor>GitHub</a>
+            <a href="https://linkedin.com/in/brian-lapinski" target="_blank" rel="noopener noreferrer" data-cursor>LinkedIn</a>
+            <a href="#" data-cursor>Substack</a>
+            <a href="#" data-cursor>Gumroad</a>
+          </nav>
         </div>
       </div>
 
-      <div class="divider mt-16" />
+      <hr class="rule mt-12" />
 
-      <div class="footer__bottom mt-8">
-        <p class="footer__copy">&copy; {{ year }} Brian Lapinski</p>
-        <nav class="footer__links" aria-label="Social links">
-          <a
-            v-for="link in socialLinks"
-            :key="link.label"
-            :href="link.href"
-            class="footer__link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ link.label }}
-          </a>
-        </nav>
+      <div class="footer__bottom mt-4">
+        <span class="dateline">&copy; {{ year }} Brian Lapinski. All rights reserved.</span>
+        <span class="dateline">Toronto, Canada</span>
       </div>
     </div>
   </footer>
@@ -42,45 +51,46 @@ const socialLinks = [
 
 <style scoped>
 .footer {
-  padding: var(--space-32) 0 var(--space-12);
-  border-top: 1px solid var(--border);
+  padding: var(--space-16) 0 var(--space-8);
 }
 
-.footer__heading {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  color: var(--text-primary);
-  max-width: none;
+.footer__grid {
+  display: grid;
+  gap: var(--gutter);
+}
+
+@media (min-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.footer__text {
+  font-size: 0.875rem;
+  max-width: 35ch;
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer__nav a {
+  font-size: 0.8125rem;
+  color: var(--ink-faded);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer__nav a:hover {
+  color: var(--ink);
 }
 
 .footer__bottom {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
   gap: var(--space-4);
-}
-
-.footer__copy {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.footer__links {
-  display: flex;
-  gap: var(--space-6);
-}
-
-.footer__link {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-out);
-}
-
-.footer__link:hover {
-  color: var(--text-primary);
 }
 </style>

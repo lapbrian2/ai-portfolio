@@ -1,85 +1,138 @@
 <script setup lang="ts">
 import { projects } from '~/data/projects'
 
-const servicesRef = ref<HTMLElement | null>(null)
+const heroRef = ref<HTMLElement | null>(null)
+const aboutRef = ref<HTMLElement | null>(null)
 const workRef = ref<HTMLElement | null>(null)
+const servicesRef = ref<HTMLElement | null>(null)
 
-useScrollReveal(servicesRef)
-useScrollReveal(workRef)
+useTextReveal(heroRef, { stagger: 0.015, duration: 0.9, delay: 0.2 })
+useScrollReveal(aboutRef, { y: 40, duration: 1 })
+useScrollReveal(workRef, { y: 40, stagger: 0.12 })
+useScrollReveal(servicesRef, { y: 30, stagger: 0.15 })
 
-const featuredProjects = projects.slice(0, 3)
+const featuredProjects = projects.slice(0, 4)
 </script>
 
 <template>
   <div>
-    <!-- Hero -->
-    <section class="hero">
-      <ShaderHero />
-      <div class="container hero__content">
-        <p class="overline mb-6">AI Engineer & Web Developer</p>
-        <h1 class="hero__title">
-          Building intelligent<br>
-          <em>systems</em> & immersive<br>
-          web experiences
-        </h1>
-        <p class="hero__sub mt-8">
-          Agents, MCP integrations, RAG pipelines, and high-performance creative websites.
-        </p>
-        <div class="hero__cta mt-12">
-          <NuxtLink to="/contact" class="btn btn--primary">Start a project</NuxtLink>
-          <NuxtLink to="/work" class="link-arrow">View work</NuxtLink>
-        </div>
-      </div>
-      <div class="hero__scroll">
-        <span class="mono">Scroll</span>
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section ref="servicesRef" class="section">
+    <!-- Banner headline -->
+    <section class="banner">
       <div class="container">
-        <div class="section__header">
-          <p class="overline mb-6">What I Do</p>
-          <h2>Two disciplines,<br>one builder</h2>
-        </div>
-        <div class="grid grid--2 mt-16">
-          <ServiceBlock
-            overline="Engineering"
-            title="AI Systems"
-            description="Production AI that works — not demos."
-            :items="['Agents & orchestration', 'MCP server integrations', 'RAG pipelines', 'Full-stack AI applications']"
-          />
-          <ServiceBlock
-            overline="Development"
-            title="Web Experiences"
-            description="Custom sites that prove your brand is serious."
-            :items="['Immersive 3D & WebGL', 'Scroll-driven animations', 'Performance-first architecture', 'Custom design systems']"
-          />
-        </div>
-        <div class="mt-12">
-          <NuxtLink to="/services" class="link-arrow">View services & process</NuxtLink>
+        <div class="banner__content">
+          <p class="kicker mb-4">Breaking</p>
+          <h1 ref="heroRef">
+            AI Engineer Ships Production Systems & Immersive Web Experiences
+          </h1>
+          <div class="banner__meta mt-6">
+            <span class="dateline">Toronto, Canada</span>
+            <span class="dateline">&mdash; Available for contracts</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="divider container" />
+    <div class="container"><hr class="rule" /></div>
 
-    <!-- Featured work -->
-    <section ref="workRef" class="section">
+    <!-- Lede section — about intro -->
+    <section class="section">
       <div class="container">
-        <div class="section__header">
-          <p class="overline mb-6">Selected Work</p>
-          <h2>Recent projects</h2>
+        <div class="grid grid--sidebar">
+          <div ref="aboutRef">
+            <p class="lede drop-cap">
+              With a background at Microsoft, Amazon, and Aya Healthcare, Brian Lapinski builds production AI systems and crafts immersive digital experiences. From multi-agent orchestration and MCP integrations to scroll-driven 3D websites, every project ships to production.
+            </p>
+            <p class="mt-6">
+              Now operating independently, he brings enterprise engineering rigor to AI agents, RAG pipelines, and creative web projects for companies that value precision and taste.
+            </p>
+            <NuxtLink to="/about" class="link-arrow mt-8" data-cursor>
+              Full biography
+            </NuxtLink>
+          </div>
+          <aside class="sidebar">
+            <h4 class="section-head">Quick Facts</h4>
+            <dl class="sidebar__facts mt-4">
+              <div class="sidebar__fact">
+                <dt>Experience</dt>
+                <dd>Microsoft, Amazon, Aya</dd>
+              </div>
+              <div class="sidebar__fact">
+                <dt>Specialties</dt>
+                <dd>AI Engineering, Creative Web</dd>
+              </div>
+              <div class="sidebar__fact">
+                <dt>Stack</dt>
+                <dd>Nuxt, Three.js, GSAP, Python</dd>
+              </div>
+              <div class="sidebar__fact">
+                <dt>Location</dt>
+                <dd>Toronto, Canada</dd>
+              </div>
+            </dl>
+          </aside>
         </div>
-        <div class="grid grid--3 mt-16">
-          <ProjectCard
-            v-for="project in featuredProjects"
+      </div>
+    </section>
+
+    <div class="container"><hr class="rule rule--thick" /></div>
+
+    <!-- Featured projects -->
+    <section class="section">
+      <div class="container">
+        <h4 class="section-head">Featured Projects</h4>
+        <div ref="workRef" class="articles mt-8">
+          <article
+            v-for="(project, i) in featuredProjects"
             :key="project.title"
-            :project="project"
-          />
+            class="article"
+          >
+            <component
+              :is="project.url ? 'a' : 'div'"
+              :href="project.url"
+              :target="project.url ? '_blank' : undefined"
+              class="article__inner"
+              data-cursor
+              data-cursor-text="Read"
+            >
+              <span class="article-num">{{ String(i + 1).padStart(2, '0') }}</span>
+              <div>
+                <p class="kicker">{{ project.category === 'ai' ? 'AI Engineering' : project.category === 'web' ? 'Web Development' : 'Creative' }}</p>
+                <h3 class="mt-2">{{ project.title }}</h3>
+                <p class="article__desc mt-2">{{ project.description }}</p>
+                <div class="article__tags mt-4">
+                  <span v-for="tag in project.tags" :key="tag" class="article__tag">{{ tag }}</span>
+                </div>
+              </div>
+            </component>
+            <hr class="rule" />
+          </article>
         </div>
-        <div class="mt-12">
-          <NuxtLink to="/work" class="link-arrow">All projects</NuxtLink>
+        <NuxtLink to="/work" class="link-arrow mt-8" data-cursor>All projects</NuxtLink>
+      </div>
+    </section>
+
+    <div class="container"><hr class="rule" /></div>
+
+    <!-- Services columns -->
+    <section class="section">
+      <div class="container">
+        <h4 class="section-head">Services Offered</h4>
+        <div ref="servicesRef" class="grid grid--2 mt-8">
+          <div>
+            <h3>AI Engineering</h3>
+            <p class="mt-4 text-justify">
+              Multi-agent systems, MCP server integrations, RAG pipelines, and full-stack AI applications. Production AI that works beyond the demo.
+            </p>
+          </div>
+          <div class="col-ruled">
+            <h3>Web Development</h3>
+            <p class="mt-4 text-justify">
+              Custom Nuxt and Vue sites, immersive Three.js experiences, scroll-driven animations, and design systems. Performance-first architecture.
+            </p>
+          </div>
+        </div>
+        <div class="mt-8 text-center">
+          <NuxtLink to="/services" class="btn" data-cursor>View Services & Process</NuxtLink>
         </div>
       </div>
     </section>
@@ -87,65 +140,107 @@ const featuredProjects = projects.slice(0, 3)
 </template>
 
 <style scoped>
-.hero {
-  position: relative;
-  min-height: 100vh;
+/* Banner */
+.banner {
+  padding: var(--space-12) 0;
+}
+
+.banner__content {
+  max-width: 900px;
+}
+
+.banner__meta {
   display: flex;
-  align-items: center;
-  overflow: hidden;
+  gap: var(--space-4);
 }
 
-.hero__content {
-  position: relative;
-  z-index: 1;
+/* Lede paragraph */
+.lede {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: none;
 }
 
-.hero__title em {
-  font-style: italic;
-  color: var(--accent);
+/* Sidebar */
+.sidebar {
+  padding-top: var(--space-2);
 }
 
-.hero__sub {
-  font-size: 1.0625rem;
-  max-width: 45ch;
-  color: var(--text-secondary);
-}
-
-.hero__cta {
+.sidebar__facts {
   display: flex;
-  align-items: center;
-  gap: var(--space-8);
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.sidebar__fact {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar__fact dt {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faded);
+}
+
+.sidebar__fact dd {
+  font-size: 0.8125rem;
+  color: var(--ink-light);
+}
+
+/* Articles */
+.articles {
+  display: flex;
+  flex-direction: column;
+}
+
+.article__inner {
+  display: flex;
+  gap: var(--space-6);
+  padding: var(--space-6) 0;
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left var(--duration-base) var(--ease-out);
+}
+
+.article__inner:hover {
+  padding-left: var(--space-3);
+}
+
+.article__inner:hover h3 {
+  color: var(--red);
+}
+
+.article__desc {
+  font-size: 0.875rem;
+  max-width: 50ch;
+}
+
+.article__tags {
+  display: flex;
+  gap: var(--space-2);
   flex-wrap: wrap;
 }
 
-.hero__scroll {
-  position: absolute;
-  bottom: var(--space-8);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-.hero__scroll .mono {
-  font-size: 0.625rem;
-  letter-spacing: 0.2em;
+.article__tag {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  animation: fadeInUp 1s var(--ease-out) 1.5s both;
+  color: var(--ink-ghost);
+  padding: 2px 6px;
+  border: 1px solid var(--rule-light);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+@media (max-width: 768px) {
+  .sidebar {
+    border-top: 1px solid var(--rule-light);
+    padding-top: var(--space-8);
+    margin-top: var(--space-8);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.section__header {
-  max-width: 600px;
 }
 </style>

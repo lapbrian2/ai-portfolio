@@ -1,65 +1,69 @@
-/* layout.css — Grid, containers, sections */
+/* layout.css — Newspaper grid */
 
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--space-6);
 }
 
 @media (min-width: 768px) {
   .container {
-    padding: 0 var(--space-12);
+    padding: 0 var(--space-8);
   }
 }
 
 .section {
-  padding: var(--space-32) 0;
+  padding: var(--space-16) 0;
   position: relative;
 }
 
-.section--surface {
-  background-color: var(--surface);
+@media (min-width: 768px) {
+  .section {
+    padding: var(--space-24) 0;
+  }
 }
 
-.section--flush {
-  padding: 0;
+/* Newspaper column layout */
+.columns {
+  column-count: 1;
+  column-gap: var(--gutter);
+  column-rule: var(--rule-width) solid var(--rule-light);
 }
 
-/* Horizontal rule */
-.divider {
-  width: 100%;
-  height: 1px;
-  background: var(--border);
+@media (min-width: 768px) {
+  .columns--2 { column-count: 2; }
+  .columns--3 { column-count: 2; }
+}
+
+@media (min-width: 1024px) {
+  .columns--3 { column-count: 3; }
 }
 
 /* Grid */
 .grid {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--gutter);
 }
 
-.grid--2 {
-  grid-template-columns: 1fr;
-}
-
-.grid--3 {
-  grid-template-columns: 1fr;
-}
-
-.grid--4 {
-  grid-template-columns: 1fr;
-}
+.grid--2 { grid-template-columns: 1fr; }
+.grid--3 { grid-template-columns: 1fr; }
+.grid--sidebar { grid-template-columns: 1fr; }
 
 @media (min-width: 768px) {
   .grid--2 { grid-template-columns: repeat(2, 1fr); }
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
-  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .grid--sidebar { grid-template-columns: 2fr 1fr; }
 }
 
 @media (min-width: 1024px) {
   .grid--3 { grid-template-columns: repeat(3, 1fr); }
-  .grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Column with left rule */
+.col-ruled {
+  padding-left: var(--gutter);
+  border-left: var(--rule-width) solid var(--rule-light);
 }
 
 /* Page transitions */
@@ -71,17 +75,4 @@
 .page-enter-from,
 .page-leave-to {
   opacity: 0;
-}
-
-/* Reveal animation base */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-.reveal--visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity var(--duration-dramatic) var(--ease-out),
-              transform var(--duration-dramatic) var(--ease-out);
 }

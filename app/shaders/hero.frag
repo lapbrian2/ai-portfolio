@@ -38,48 +38,34 @@ void main() {
   float aspect = uResolution.x / uResolution.y;
   uv.x *= aspect;
 
-  // Mouse influence — creates a subtle light source
   vec2 mouse = uMouse * vec2(aspect, 1.0);
   float mouseDist = length(uv - mouse);
-  float mouseGlow = smoothstep(0.6, 0.0, mouseDist) * 0.25;
+  float mouseGlow = smoothstep(0.6, 0.0, mouseDist) * 0.12;
 
-  // Layered noise — flowing, organic
-  float t = uTime * 0.1;
+  float t = uTime * 0.08;
   float n1 = snoise(uv * 1.5 + t) * 0.5;
   float n2 = snoise(uv * 3.0 - t * 0.5) * 0.25;
   float n3 = snoise(uv * 6.0 + t * 0.3) * 0.125;
-  float n4 = snoise(uv * 12.0 - t * 0.2) * 0.0625;
-  float noise = n1 + n2 + n3 + n4;
+  float noise = n1 + n2 + n3;
 
-  // Dark palette — deep space with subtle color shifts
-  vec3 bgDark = vec3(0.039, 0.039, 0.059);    // #0A0A0F
-  vec3 bgMid = vec3(0.067, 0.067, 0.094);      // slightly lighter
-  vec3 accentDim = vec3(0.15, 0.2, 0.45);      // blue undertone
-  vec3 accentWarm = vec3(0.25, 0.12, 0.3);     // purple-warm accent
+  // Warm cream palette — matches #F2F0E6
+  vec3 bgWarm = vec3(0.949, 0.941, 0.902);  // #F2F0E6
+  vec3 bgAlt = vec3(0.918, 0.906, 0.858);   // #EAE7DB
+  vec3 warmAccent = vec3(0.92, 0.90, 0.85);
 
-  // Build the color field
-  vec3 color = mix(bgDark, bgMid, noise * 0.5 + 0.5);
+  vec3 color = mix(bgWarm, bgAlt, noise * 0.4 + 0.5);
+  color = mix(color, warmAccent, smoothstep(0.2, 0.6, noise) * 0.2);
 
-  // Accent color threading
-  float accentMask = smoothstep(0.2, 0.6, noise) * 0.2;
-  color = mix(color, accentDim, accentMask);
+  // Subtle mouse light
+  color += vec3(0.03, 0.02, 0.01) * mouseGlow;
 
-  // Warm accent in corners
-  float cornerDist = length(uv - vec2(aspect * 0.8, 0.2));
-  float warmMask = smoothstep(0.8, 0.0, cornerDist) * 0.1;
-  color = mix(color, accentWarm, warmMask);
-
-  // Mouse glow — subtle light follows cursor
-  vec3 glowColor = vec3(0.2, 0.3, 0.6);
-  color += glowColor * mouseGlow;
-
-  // Vignette
+  // Vignette — very subtle
   vec2 vigUv = vUv * 2.0 - 1.0;
-  float vig = 1.0 - dot(vigUv * 0.5, vigUv * 0.5);
-  color *= smoothstep(0.0, 0.8, vig);
+  float vig = 1.0 - dot(vigUv * 0.3, vigUv * 0.3);
+  color *= smoothstep(0.2, 0.9, vig);
 
-  // Film grain
-  float grain = (fract(sin(dot(vUv * uTime * 0.5, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 0.04;
+  // Fine grain
+  float grain = (fract(sin(dot(vUv * uTime * 0.3, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 0.015;
   color += grain;
 
   gl_FragColor = vec4(color, 1.0);

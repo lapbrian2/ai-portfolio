@@ -31,7 +31,6 @@ const year = new Date().getFullYear()
         <div class="col-ruled">
           <h4 class="section-head">Elsewhere</h4>
           <nav class="footer__nav mt-4">
-            <a href="https://github.com/lapbrian2" target="_blank" rel="noopener noreferrer" data-cursor>GitHub</a>
             <a href="https://www.linkedin.com/in/brian-lapinski-a65238352" target="_blank" rel="noopener noreferrer" data-cursor>LinkedIn</a>
             <a href="https://www.instagram.com/brian_lapinski1/" target="_blank" rel="noopener noreferrer" data-cursor>Instagram</a>
           </nav>

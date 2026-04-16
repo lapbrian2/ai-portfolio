@@ -6,7 +6,7 @@ const headlines = [
   'LEAN SIX SIGMA meets machine learning in new engineering practice',
   'REPORT: Scroll-driven 3D web experiences gain critical acclaim',
   'LOCAL BUILDER: "Every system ships, every process is measurable"',
-  'NEW SERVICE: Custom websites with Google Business setup from $2,500',
+  'NEW: Custom websites with Google Business setup now available',
   'TECHNOLOGY: Three.js + GSAP + Lenis powers next-generation portfolios',
 ]
 

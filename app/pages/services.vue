@@ -85,7 +85,6 @@ useScrollVelocity('.ink-bleed')
               <li>Full-stack AI applications</li>
               <li>AI workflow automation</li>
             </ul>
-            <p class="price mt-6">Starting at $175/hr</p>
           </div>
           <div class="col-ruled scroll-reveal-slow">
             <h4 class="section-head">Web Development</h4>
@@ -101,7 +100,6 @@ useScrollVelocity('.ink-bleed')
               <li>Custom GLSL shaders</li>
               <li>Small business packages with SEO</li>
             </ul>
-            <p class="price mt-6">Sites from $2,500 &middot; Contracts from $175/hr</p>
           </div>
         </div>
       </div>

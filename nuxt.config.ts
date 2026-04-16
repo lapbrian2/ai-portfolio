@@ -35,5 +35,6 @@ export default defineNuxtConfig({
     '~/assets/css/base.css',
     '~/assets/css/layout.css',
     '~/assets/css/utilities.css',
+    '~/assets/css/animations.css',
   ],
 })

@@ -1,6 +1,7 @@
 <template>
   <div class="newspaper">
     <ShaderHero />
+    <div class="scroll-progress" />
     <div class="newspaper__content">
       <AppHeader />
       <main>

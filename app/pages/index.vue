@@ -80,7 +80,7 @@ onMounted(() => {
               Brian Lapinski's path to AI engineering started not in a computer science lab but on
               the operations floor at Amazon, where he managed programs and led teams as an Area Manager.
               Lean-certified and Six Sigma trained, he built Quick Dry Floor Care into a successful
-              residential carpet cleaning operation before founding US Hydrations.
+              residential carpet cleaning operation. He now works at US Hydrations.
             </p>
             <p class="body-col mt-6 text-justify scroll-reveal-slow">
               Now he builds production AI systems and immersive web experiences — multi-agent orchestration,
@@ -105,7 +105,11 @@ onMounted(() => {
               </div>
               <div class="sidebar__fact">
                 <dt>Ventures</dt>
-                <dd>Quick Dry Floor Care, US Hydrations</dd>
+                <dd>Quick Dry Floor Care (Owner)</dd>
+              </div>
+              <div class="sidebar__fact">
+                <dt>Current</dt>
+                <dd>US Hydrations</dd>
               </div>
               <div class="sidebar__fact">
                 <dt>Availability</dt>

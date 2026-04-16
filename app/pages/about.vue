@@ -20,8 +20,8 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
                 and Six Sigma process optimization. The systems thinking stuck.
               </p>
               <p class="body-col mt-6 text-justify">
-                From Amazon, he built Quick Dry Floor Care, a residential low-moisture carpet cleaning
-                company, from the ground up. Then US Hydrations. Each venture sharpened the same instinct:
+                From Amazon, he built Quick Dry Floor Care — a residential low-moisture carpet cleaning
+                company — from the ground up. Now at US Hydrations, the operations instinct remains:
                 find the process, eliminate the waste, ship the result.
               </p>
               <p class="body-col mt-6 text-justify">
@@ -46,8 +46,8 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
                 <dd>Independent AI Engineer & Web Developer</dd>
               </div>
               <div class="cv__item">
-                <dt>Venture</dt>
-                <dd>US Hydrations — Founder</dd>
+                <dt>Current</dt>
+                <dd>US Hydrations</dd>
               </div>
               <div class="cv__item">
                 <dt>Venture</dt>

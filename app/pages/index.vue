@@ -169,7 +169,7 @@ onMounted(() => {
 
             <EditorNote
               type="dispatch"
-              text="Mr. Lapinski came to art and technology by way of Amazon, where he managed programs and led teams as an Area Manager. A Villanova-trained Lean Six Sigma Black Belt, he founded Quick Dry Floor Care before taking a supervisory post at US Hydrations. The operations discipline — measure, optimize, ship — carried into everything that followed."
+              text="Mr. Lapinski came to art and technology by way of Amazon, where he started as a temporary worker and was promoted through Area Manager to Regional Manager for Amazon Fresh, eventually moving into program management. A Villanova-trained Lean Six Sigma Black Belt, he went on to found Quick Dry Floor Care and now works at US Hydrations. The operations discipline — measure, optimize, ship — carried into everything that followed."
             />
 
             <ScrollRevealText
@@ -207,7 +207,7 @@ onMounted(() => {
               </div>
               <div class="sidebar__fact">
                 <dt>Day Job</dt>
-                <dd>Supervisor, US Hydrations</dd>
+                <dd>US Hydrations</dd>
               </div>
               <div class="sidebar__fact">
                 <dt>Location</dt>

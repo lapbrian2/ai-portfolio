@@ -24,7 +24,7 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
               />
               <ScrollRevealText
                 class="body-col mt-6"
-                text="But the work doesn't stop at images. Lapinski is a Villanova-trained Lean Six Sigma Black Belt who managed programs and led teams at Amazon as an Area Manager. He founded Quick Dry Floor Care, a residential carpet cleaning operation, and now supervises at US Hydrations. The operations mindset — eliminate waste, measure everything, ship on time — carried into everything he builds."
+                text="But the work doesn't stop at images. Lapinski started at Amazon as a temporary worker and was promoted through Area Manager to Regional Manager for Amazon Fresh, then into program management — earning a Lean Six Sigma Black Belt from Villanova along the way. He founded Quick Dry Floor Care and now works at US Hydrations. The operations mindset — eliminate waste, measure everything, ship on time — carried into everything he builds."
               />
               <ScrollRevealText
                 class="body-col mt-6"
@@ -65,12 +65,12 @@ useScrollReveal(bioRef, { y: 40, duration: 1 })
                 <dd>AI Architect — The House of Curiosity</dd>
               </div>
               <div class="cv__item">
-                <dt>Operations</dt>
-                <dd>Supervisor — US Hydrations</dd>
+                <dt>Current</dt>
+                <dd>US Hydrations</dd>
               </div>
               <div class="cv__item">
-                <dt>Past</dt>
-                <dd>Amazon — Program Mgmt, Area Manager</dd>
+                <dt>Amazon</dt>
+                <dd>Temp → Area Mgr → Regional Mgr (Fresh) → Program Mgmt</dd>
               </div>
               <div class="cv__item">
                 <dt>Founded</dt>

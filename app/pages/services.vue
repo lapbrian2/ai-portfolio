@@ -56,6 +56,9 @@ useScrollVelocity('.ink-bleed')
                 <li>Lürzer's Archive 200 Best Digital Artists</li>
                 <li>creAtIva Magazine Vol. 7</li>
                 <li>Choice Dao 2026 Mover and Shaker</li>
+                <li>Lean Six Sigma Black Belt (Villanova)</li>
+                <li>ASQ Lean Certified</li>
+                <li>SSGI Six Sigma</li>
                 <li>ImagineArt Ambassador</li>
                 <li>Caimera Creative Partner</li>
               </ul>

@@ -199,7 +199,7 @@ onMounted(() => {
               </div>
               <div class="sidebar__fact">
                 <dt>Certifications</dt>
-                <dd>Lean Six Sigma Black Belt (Villanova)</dd>
+                <dd>Lean Six Sigma Black Belt (Villanova), ASQ Lean, SSGI Six Sigma</dd>
               </div>
               <div class="sidebar__fact">
                 <dt>Roles</dt>

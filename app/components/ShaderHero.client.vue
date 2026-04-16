@@ -20,8 +20,8 @@ function onMouseMove(e: MouseEvent) {
 
 function onResize() {
   if (!canvas.value || !renderer) return
-  const w = canvas.value.clientWidth
-  const h = canvas.value.clientHeight
+  const w = window.innerWidth
+  const h = window.innerHeight
   renderer.setSize(w, h)
   material.uniforms.uResolution.value.set(w, h)
 }
@@ -29,13 +29,13 @@ function onResize() {
 onMounted(() => {
   if (!canvas.value) return
 
-  const w = canvas.value.clientWidth
-  const h = canvas.value.clientHeight
+  const w = window.innerWidth
+  const h = window.innerHeight
 
   renderer = new THREE.WebGLRenderer({
     canvas: canvas.value,
     antialias: false,
-    alpha: false,
+    alpha: true,
   })
   renderer.setSize(w, h)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
@@ -51,12 +51,12 @@ onMounted(() => {
       uTime: { value: 0 },
       uMouse: { value: new THREE.Vector2(0.5, 0.5) },
       uResolution: { value: new THREE.Vector2(w, h) },
+      uScroll: { value: 0 },
     },
   })
 
   const geometry = new THREE.PlaneGeometry(2, 2)
-  const mesh = new THREE.Mesh(geometry, material)
-  scene.add(mesh)
+  scene.add(new THREE.Mesh(geometry, material))
 
   const clock = new THREE.Clock()
 
@@ -81,12 +81,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <canvas ref="canvas" class="shader-hero" aria-hidden="true" />
+  <canvas ref="canvas" class="paper-texture" aria-hidden="true" />
 </template>
 
 <style scoped>
-.shader-hero {
-  position: absolute;
+.paper-texture {
+  position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
